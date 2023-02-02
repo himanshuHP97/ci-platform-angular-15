@@ -1,0 +1,43 @@
+<div class="row g-0 box">
+  <div class="d-md-flex col-xs-12 col-sm-12 col-md-8 col-lg-8 leftbox">
+    <div class="box-content">
+      <h2>Sed ut perspiciatis unde omnis iste natus voluptatem.</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua
+      </p>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 rightbox">
+    <div class="login-form">
+      <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate autocomplete="false">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="text" class="form-control" name="email" formControlName="email" />
+          <!-- <p *ngIf="displayMessage.email" class="help is-danger">
+             {{ displayMessage.email }}</p> -->
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control" name="password" formControlName="password" />
+          <!-- <p *ngIf="displayMessage.password" class="help is-danger">
+            {{ displayMessage.password }} </p> -->
+        </div>
+        <button type="submit" class="btn btn-black form-control" [disabled]="loginForm.invalid">
+          Login
+        </button>
+        <div class="links">
+          <a routerLink="/ci-platform/forgot-password" routerLinkActive="active">Lost your password?</a>
+        </div>
+        <div class="links">
+          Don't have an account?
+          <a routerLink="/ci-platform/registration" routerLinkActive="active" style="color: rgb(41, 104, 182)">Create an
+            account</a>
+        </div>
+      </form>
+      <div class="privacy-policy">
+        <a routerLink="/ci-platform/privacy-policy" routerLinkActive="active"><span>Privacy Policy</span></a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,102 @@
+<div class="row box">
+  <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 leftbox">
+    <div class="box-content">
+      <h2>Sed ut perspiciatis unde omnis iste natus voluptatem.</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua
+      </p>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 rightbox">
+    <div class="login-form">
+      <form
+        class="form"
+        [formGroup]="signUpForm"
+        (ngSubmit)="onSignUp()"
+        autocomplete="false"
+      >
+        <div class="form-group">
+          <label>First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="firstname"
+            formControlName="firstname"
+          />
+        </div>
+        <div class="form-group">
+          <label>Lsat Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="lastname"
+            formControlName="lastname"
+          />
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input
+            type="text"
+            class="form-control"
+            name="phone"
+            formControlName="phone"
+          />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            formControlName="email"
+          />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            formControlName="password"
+          />
+        </div>
+        <div class="form-group">
+          <label>Confirm Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="confirmpassword"
+            formControlName="confirmpassword"
+          />
+        </div>
+        <button type="submit" class="btn btn-black form-control">
+          Register
+        </button>
+        <div class="links">
+          <a
+            routerLink="/ci-platform/forgot-password"
+            routerLinkActive="active"
+          >
+            Lost your password?
+          </a>
+        </div>
+        <div class="links">
+          Already registered?
+          <a
+            style="color: rgb(41, 104, 182)"
+            routerLink="/ci-platform/login"
+            routerLinkActive="active"
+          >
+            Login Now
+          </a>
+        </div>
+      </form>
+      <div class="privacy-policy">
+        <a routerLink="/ci-platform/privacy-policy" routerLinkActive="active"
+          ><span>Privacy Policy</span></a
+        >
+      </div>
+    </div>
+  </div>
+</div>
