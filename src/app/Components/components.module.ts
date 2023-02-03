@@ -13,9 +13,9 @@ import { PaginationComponent } from './pagination/pagination.component';
     FooterComponent,
     SearchFilterComponent,
     PrivacyPolicyComponent,
-    PaginationComponent,
+    PaginationComponent
   ],
-  imports: [SharedModule, RouterModule],
+  imports: [SharedModule],
   exports: [
     HeaderComponent,
     FooterComponent,

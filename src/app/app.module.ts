@@ -14,7 +14,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
   ],
   imports: [
     RouterModule,
-    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', {

@@ -1,0 +1,113 @@
+<div class="container w-full h-full">
+  <div class="grid w-full h-full md:grid-cols-12 lg:grid-cols-12 items-center">
+    <div class="lg:col-span-8 md:col-span-6 sm:col-span-5">
+      <h4>Explore Mission</h4>
+    </div>
+    <div class="lg:col-span-2 md:col-span-2 sm:col-span-3">
+      <div class="input-group-btn">
+        <select class="form-select">
+          <option>Sort By</option>
+          <option>Newest</option>
+          <option>Oldest</option>
+          <option>Lowest available seats</option>
+          <option>Highest available seats</option>
+          <option>My favourites</option>
+          <option>Registration deadline</option>
+        </select>
+      </div>
+    </div>
+    <div class="lg:col-span-1 md:col-span-1 sm:col-span-1 gridview">
+      <div id="grid">
+        <img src="../../../assets/images/grid.png" class="bg-slate-400 float-end" style="cursor: pointer;">
+      </div>
+    </div>
+    <div class="lg:col-span-1 md:col-span-1 sm:col-span-1 listview" >
+      <div id="list">
+        <img src="../../../assets/images/list.png" class="mx-auto float-end" style="cursor: pointer;">
+      </div>
+    </div>
+  </div>
+</div>
+<section class="py-5">
+  <div class="container px-4 px-lg-5 mt-2">
+    <div class="row justify-content-start">
+      <div class="col mb-3">
+        <div class="card">
+          <div>
+            <div class="card-icon">
+              <div class="location">
+                <i class="fa fa-location-arrow">Toronto</i>
+              </div>
+              <div class="favourite">
+                <i class="fa fa-heart-o"></i>
+              </div>
+              <div class="Useradd">
+                <i class="fa fa-user-plus"></i>
+              </div>
+            </div>
+            <img class="card-img-top img-thumbnail border-0"
+              src="../../../assets/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="..." />
+            <div class="mission-theme text-center">Environment</div>
+          </div>
+          <div class="card-body p-4">
+            <h5 class="card-title mission-title"> Grow Trees – On the path to environment sustainability</h5>
+            <p class="card-text mission-description">Some quick example text to build on the card title and make up the
+              bulk of the card's
+              content.</p>
+            <div class="orignaization-name">
+              Tree Canada
+              <span class="star-rating float-end">
+                <i class="fa fa-star" id="star1"></i>
+                <i class="fa fa-star" id="star2"></i>
+                <i class="fa fa-star" id="star3"></i>
+                <i class="fa fa-star" id="star4"></i>
+                <i class="fa fa-star" id="star5"></i>
+              </span>
+            </div>
+            <div class="card-divider">
+              <div class="mission-date ">
+                <div class="mission-date-content">
+                  From 10/01/2019 until 25/02/2019
+                </div>
+              </div>
+
+              <div class="mission-seats-deadline d-flex align-items-center justify-content-between">
+                <div class="seats d-inline-flex">
+                  <span>
+                    <img src="../../../assets/images/Seats-left.png" width="30px" height="30px">
+                  </span>
+                  <div class="seats-left">
+                    10
+                    <div class="text-style-1">
+                      Seats left
+                    </div>
+                  </div>
+                </div>
+                <div class="deadline d-inline-flex">
+                  <span>
+                    <img src="../../../assets/images/deadline.png" width="35px" height="35px">
+                  </span>
+                  <div class="deadline-date">
+                    09/01/2019
+                    <div class="text-style-1">
+                      Deadline
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="button">
+              <button class="btn">
+                Apply <i class="fa fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container mt-2">
+  <app-pagination></app-pagination>
+</div>
