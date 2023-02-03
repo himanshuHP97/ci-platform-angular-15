@@ -17,6 +17,13 @@ const routes: Routes = [
         (m) => m.UserModulesModule
       ),
   },
+  {
+    path: 'admin-home',
+    loadChildren: () =>
+      import('./admin-modules/admin-modules.module').then(
+        (m) => m.AdminModulesModule
+      ),
+  },
 ];
 
 @NgModule({

@@ -1,2 +1,13 @@
-<div class="conatiner w-screen">
+<div class="conatiner w-screen h-screen">
+  <div class="grid w-full h-full md:grid-cols-12 lg:grid-cols-12">
+    <aside class="lg:col-span-2 md:col-span-2 sm:col-span-3 col-span-12 px-0" style="background: #f88634;">
+      <app-sidebar></app-sidebar>
+    </aside>
+    <main class="lg:col-span-10 md:col-span-10 sm:col-span-10 col-span-12 px-0 bg-white">
+      <app-header></app-header>
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </div>
 </div>

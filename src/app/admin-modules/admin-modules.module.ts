@@ -30,7 +30,6 @@ import { CmsPagesComponent } from './cms-pages/cms-pages.component';
     CmsPagesComponent
   ],
   imports: [
-    CommonModule,
     AdminRoutingModule
   ]
 })

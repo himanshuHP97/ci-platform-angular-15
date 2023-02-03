@@ -1,1 +1,23 @@
-<p>header works!</p>
+<header class="grid w-full lg:grid-cols-12 items-center justify-between bg-white py-2.5  shadow-lg shadow-black-500/50">
+  <div class="lg:col-span-9 md:col-span-9 sm:col-span-9 col-span-12  ml-4">
+    <span>
+      Thursday, November 3, 2022, 10:06 AM
+    </span>
+  </div>
+  <div class="lg:col-span-3 md:col-span-3 sm:col-span-3 col-span-12">
+    <div class="flex float-end">
+      <img class="flex-row img mr-2 rounded-circle" src="../../../assets/images/user-img.png" alt="" width="20px"
+        height="20px">
+      <ul class="flex-row mr-4">
+        <li class="nav-item dropdown" appDropdown>
+          <a class="dropdown-toggle" role="button">User
+            Profile <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item">User Profile</a></li>
+            <li><a class="dropdown-item">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
