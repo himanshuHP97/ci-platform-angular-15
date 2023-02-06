@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgxEditorModule } from 'ngx-editor';
 import { AdminRoutingModule } from './admin-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './header/header.component';
@@ -12,6 +13,9 @@ import { StoryComponent } from './story/story.component';
 import { UsersComponent } from './users/users.component';
 import { BannerComponent } from './banner/banner.component';
 import { CmsPagesComponent } from './cms-pages/cms-pages.component';
+import { AddCmsPageComponent } from './cms-pages/add-cms-page/add-cms-page.component';
+import { EditCmsPageComponent } from './cms-pages/edit-cms-page/edit-cms-page.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -27,10 +31,15 @@ import { CmsPagesComponent } from './cms-pages/cms-pages.component';
     StoryComponent,
     UsersComponent,
     BannerComponent,
-    CmsPagesComponent
+    CmsPagesComponent,
+    AddCmsPageComponent,
+    EditCmsPageComponent,
   ],
   imports: [
-    AdminRoutingModule
+    CommonModule,
+    AdminRoutingModule,
+    FormsModule,
+    NgxEditorModule
   ]
 })
 export class AdminModulesModule { }

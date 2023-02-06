@@ -1,0 +1,69 @@
+<div class="w-full max-w-full my-5 ml-1">
+  <div class="bg-white border-b-2 border-gray-300">
+    <span class="text-2xl border-b-2 border-gray-800 w-auto">CMS Page</span>
+  </div>
+  <div class="flex items-center justify-between mr-5">
+    <div class="flex mt-3 xl:w-72">
+      <div class="input-group relative flex flex-wrap items-stretch w-full mb-4">
+        <input type="search"
+          class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:outline-none"
+          placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+      </div>
+    </div>
+    <div class="flex">
+      <a class="w-20 text-center border-2 border-orange-500 rounded-full bg-white  text-orange-500  text-base font-semibold leading-7 text-orange shadow-sm hover:text-orange-500"
+        routerLink="/admin-home/add-cms-page" routerLinkActive="active">+ Add</a>
+    </div>
+  </div>
+  <div class="relative flex flex-col min-w-0 break-words bg-white border-0 bg-clip-border">
+    <div class="table-responsive">
+      <table class="table table-flush text-black border-2  border-gray-400" datatable id="datatable-search">
+        <thead class="bg-gray-200">
+          <tr>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="font-normal leading-normal text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            </td>
+            <td class="font-normal leading-normal text-sm">Active</td>
+            <td class="font-normal leading-normal text-sm flex-row justify-end items-center">
+              <a class="ml-3 text-orange-500 hover:text-orange-500" routerLink="/admin-home/edit-cms-page"
+                routerLinkActive="active"><i class="fa fa-edit fa-lg"></i></a>
+              <button class="ml-3"><i class="fa fa-trash fa-lg"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm float-end" aria-label="Pagination">
+        <a href="#"
+          class="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-black hover:bg-gray-50 focus:z-20">
+          <span class="sr-only">Previous</span>
+          <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+            aria-hidden="true">
+            <path fill-rule="evenodd"
+              d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+        <a href="#" aria-current="page"
+          class="relative z-10 inline-flex items-center border border-indigo-500 px-4 py-2 text-sm font-medium text-white bg-orange-500 focus:z-20">1</a>
+        <a href="#"
+          class="relative inline-flex items-center rounded-r-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-black hover:bg-gray-50 focus:z-20">
+          <span class="sr-only">Next</span>
+          <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+            aria-hidden="true">
+            <path fill-rule="evenodd"
+              d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </div>
+</div>
