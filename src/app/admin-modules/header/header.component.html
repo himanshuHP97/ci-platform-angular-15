@@ -1,20 +1,20 @@
 <header class="grid w-full lg:grid-cols-12 items-center justify-between bg-white py-2.5  shadow-md shadow-black-500/50">
-  <div class="lg:col-span-9 md:col-span-9 sm:col-span-9 col-span-12  ml-4">
+  <div class="lg:col-span-9 col-span-12  ml-4">
     <span>
       {{headerDate | date:'full'}}
     </span>
   </div>
-  <div class="lg:col-span-3 md:col-span-3 sm:col-span-3 col-span-12">
+  <div class="lg:col-span-3 col-span-12 mr-3">
     <div class="flex float-end">
-      <img class="flex-row img mr-2 rounded-circle" src="../../../assets/images/user-img.png" alt="" width="20px"
+      <img class="flex img mr-2 rounded-circle" src="../../../assets/images/user-img.png" alt="" width="20px"
         height="20px">
-      <ul class="flex-row mr-4">
-        <li class="nav-item dropdown" appDropdown>
-          <a class="dropdown-toggle" role="button">User
+      <ul class="flex">
+        <li class="nav-item dropdown" appDropDown #show="appDropDown" #hide>
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button">User
             Profile <span class="caret"></span></a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu" [ngClass]="{'show':show.isOpen}">
             <li><a class="dropdown-item">User Profile</a></li>
-            <li><a class="dropdown-item">Logout</a></li>
+            <li><a class="dropdown-item" (click)="onLogout()">Logout</a></li>
           </ul>
         </li>
       </ul>

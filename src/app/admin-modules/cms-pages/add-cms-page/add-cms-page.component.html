@@ -1,7 +1,7 @@
 <div>
   <div class="grid md:grid-cols-12">
     <div class="mt-5 md:col-span-12">
-      <form>
+      <form [formGroup]="addpages" (ngSubmit)="onAddPage()">
         <div class="sm:rounded-md shadow-sm sm:overflow-hidden">
           <div class="flex-1 block w-full text-black border-2 text-lg font-normal bg-gray-200 px-4 py-2">
             Add
@@ -11,8 +11,11 @@
               <label for="title" class="block text-sm font-medium text-gray-700">
                 Title
               </label>
-              <input type="text" name="title" id="title"
+              <input type="text" name="title" id="title" formControlName="title"
                 class="flex-1 block w-full  sm:text-sm border-2 border-gray-300" />
+              <!-- <span class="text-danger" *ngIf="title.invalid && (title.touched || formValid)">
+                  Please Enter Title
+                </span> -->
             </div>
 
             <div class="col-s">
@@ -20,35 +23,37 @@
                 Description
               </label>
               <div class="mt-1">
-                <div class="NgxEditor__Wrapper" id="description" name="description">
+                <div class="NgxEditor__Wrapper">
                   <ngx-editor-menu [editor]="editor"></ngx-editor-menu>
-                  <ngx-editor [editor]="editor" [ngModel]="html">
+                  <ngx-editor [editor]="editor" [ngModel]="html" formControlName="description" style="height: 400px"
+                    id="description" name="description">
                   </ngx-editor>
                 </div>
               </div>
             </div>
             <div>
-              <label for="title" class="block text-sm font-medium text-gray-700">
+              <label for="slug" class="block text-sm font-medium text-gray-700">
                 Slug
               </label>
-              <input type="text" name="title" id="title"
+              <input type="text" name="slug" id="slug" formControlName="slug"
                 class="flex-1 block w-full  sm:text-sm border-2 border-gray-300" />
             </div>
             <div>
-              <label for="title" class="block text-sm font-medium text-gray-700">
+              <label for="status" class="block text-sm font-medium text-gray-700">
                 Status
               </label>
-              <select class="flex-1 block w-full sm:text-sm border-2 border-gray-300">
-                <option value="">Select</option>
-                <option value="True">Active</option>
-                <option value="false">InActive</option>
+              <select class="flex-1 block w-full sm:text-sm border-2 border-gray-300" id="status" name="status"
+                formControlName="status">
+                <option value="Active">Active</option>
+                <option value="InActive">InActive</option>
               </select>
             </div>
           </div>
         </div>
         <div class="px-4 py-3 my-3 bg-white text-right sm:px-6">
-          <button type="submit"
-            class="mr-3 inline-flex justify-cente text-center px-4 py-1 border-2 border-neutral-400 rounded-full bg-white  text-neutral-400  text-base font-semibold leading-7 text-orange shadow-sm">
+          <button type="button"
+            class="mr-3 inline-flex justify-cente text-center px-4 py-1 border-2 border-neutral-400 rounded-full bg-white  text-neutral-400  text-base font-semibold leading-7 text-orange shadow-sm"
+            (click)=" OnCancel()">
             Canecl
           </button>
           <button type="submit"

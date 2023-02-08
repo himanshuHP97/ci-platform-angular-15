@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Type } from '@angular/compiler';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
-
   constructor(private formbuilder: FormBuilder, private router: Router) {}
 
   ngOnInit() {
@@ -21,8 +21,21 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      this.router.navigate(['/user-home']);
-      console.log(this.loginForm);
+      const email = this.loginForm.value.email;
+      const password = this.loginForm.value.password;
+
+      if (email === 'admin@ciplatform.com' && password === 'Admin@123') {
+        this.router.navigate(['/admin-home']);
+        console.log(this.loginForm);
+      } else if (email === 'user@ciplatform.com' && password === 'User@123') {
+        this.router.navigate(['/user-home']);
+        console.log(this.loginForm);
+      } else {
+        window.alert('You are not authorised person!');
+        this.router.navigate(['/ci-platform']);
+      }
+    } else {
+      window.alert('An error occurred');
     }
   }
 }

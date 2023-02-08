@@ -28,7 +28,7 @@ const routes: Routes = [
         component: AddCmsPageComponent,
       },
       {
-        path: 'edit-cms-page',
+        path: 'edit-cms-page/:id',
         component: EditCmsPageComponent,
       },
       {
