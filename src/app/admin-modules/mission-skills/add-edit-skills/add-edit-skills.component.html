@@ -1,0 +1,51 @@
+<div>
+  <div class="grid md:grid-cols-12">
+    <div class="mt-5 md:col-span-12">
+      <form [formGroup]="skillForm" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="id">
+        <div class="sm:rounded-md shadow-sm sm:overflow-hidden">
+          <div class="flex-1 block w-full text-black border-2 text-lg font-normal bg-gray-200 px-4 py-2">
+            Add-Edit
+          </div>
+          <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700">
+                Name
+              </label>
+              <input type="text" id="name" formControlName="name"
+                class="flex-1 block w-full  sm:text-sm border-2 border-gray-300"/>
+                <span class="text-danger" *ngIf="name.invalid && (name.touched || submitted)">
+                  Name required
+                </span>
+            </div>
+            <div>
+              <label for="status" class="block text-sm font-medium text-gray-700">
+                Status
+              </label>
+              <select class="flex-1 block w-full sm:text-sm border-2 border-gray-300" id="status" name="status"
+                formControlName="status">
+                <option value="Active">Active</option>
+                <option value="InActive">InActive</option>
+              </select>
+              <span class="text-danger" *ngIf="status.invalid && (status.touched || submitted)">
+                Status required
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="px-4 py-3 my-3 bg-white text-right sm:px-6">
+          <button type="button"
+            class="mr-3 inline-flex justify-cente text-center px-4 py-1 border-2 border-neutral-400 rounded-full bg-white  text-neutral-400  text-base font-semibold leading-7 text-orange shadow-sm"
+            (click)=" OnCancel()">
+            Canecl
+          </button>
+          <button type="submit"
+            class="inline-flex justify-cente text-center px-4 py-1 border-2 border-orange-500 rounded-full bg-white  text-orange-500  text-base font-semibold leading-7 text-orange shadow-sm"
+            [disabled]="!skillForm.valid">
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

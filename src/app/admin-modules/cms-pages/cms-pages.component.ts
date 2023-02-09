@@ -1,22 +1,23 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs/internal/Subscription';
 
-import { CmspageService } from './../service/cmspage.service';
 import { Cmspage } from './../interface/cmspage';
-import { bootstrapApplication } from '@angular/platform-browser';
+import { AdminService } from './../service/adminservices.service';
 
 @Component({
   selector: 'app-cms-pages',
   templateUrl: './cms-pages.component.html',
   styleUrls: ['./cms-pages.component.scss'],
 })
-export class CmsPagesComponent implements OnInit {
+export class CmsPagesComponent implements OnInit, OnDestroy {
   cmspages: Cmspage[] = [];
   rowId!: number;
   displayStyle = 'none';
   colorStatus = '';
+  subscriber!: Subscription;
 
-  constructor(private cmspageService: CmspageService, private router: Router) {}
+  constructor(private cmspageService: AdminService, private router: Router) {}
 
   ngOnInit(): void {
     this.onGetPages();
@@ -31,7 +32,7 @@ export class CmsPagesComponent implements OnInit {
   }
 
   onGetPages(): void {
-    this.cmspageService.getPages().subscribe(
+    this.subscriber = this.cmspageService.getPages().subscribe(
       (response: Cmspage[]) => {
         if (response.length != null) {
           this.cmspages = response;
@@ -45,7 +46,7 @@ export class CmsPagesComponent implements OnInit {
   }
 
   onDeletePage(id: number) {
-    this.cmspageService.deletePage(id).subscribe(
+    this.subscriber = this.cmspageService.deletePage(id).subscribe(
       (response: Cmspage) => {
         if (response.id != 0) {
           window.alert('Page deleted!');
@@ -57,5 +58,9 @@ export class CmsPagesComponent implements OnInit {
       },
       (error: any) => console.log(error)
     );
+  }
+
+  ngOnDestroy(): void {
+    this.subscriber.unsubscribe;
   }
 }

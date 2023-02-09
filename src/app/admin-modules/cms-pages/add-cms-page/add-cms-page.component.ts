@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Editor } from 'ngx-editor';
-import { Cmspage } from '../../interface/cmspage';
-import { CmspageService } from '../../service/cmspage.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
+
+import { Cmspage } from '../../interface/cmspage';
+import { AdminService } from './../../service/adminservices.service';
 
 @Component({
   selector: 'app-add-cms-page',
@@ -16,7 +17,7 @@ export class AddCmsPageComponent implements OnInit, OnDestroy {
   addpages!: FormGroup;
 
   constructor(
-    private cmspageService: CmspageService,
+    private cmspageService: AdminService,
     private router: Router,
     private formbulider: FormBuilder
   ) {
@@ -24,7 +25,7 @@ export class AddCmsPageComponent implements OnInit, OnDestroy {
       title: '',
       description: '',
       slug: '',
-      status: Boolean,
+      status: '',
     });
   }
 

@@ -1,3 +1,4 @@
+import { AdminService } from './service/adminservices.service';
 import { SharedModule } from './../Shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -17,6 +18,8 @@ import { CmsPagesComponent } from './cms-pages/cms-pages.component';
 import { AddCmsPageComponent } from './cms-pages/add-cms-page/add-cms-page.component';
 import { EditCmsPageComponent } from './cms-pages/edit-cms-page/edit-cms-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddEditSkillsComponent } from './mission-skills/add-edit-skills/add-edit-skills.component';
+import { AddEditThemeComponent } from './mission-theme/add-edit-theme/add-edit-theme.component';
 
 
 
@@ -35,6 +38,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CmsPagesComponent,
     AddCmsPageComponent,
     EditCmsPageComponent,
+    AddEditSkillsComponent,
+    AddEditThemeComponent,
   ],
   imports: [
     CommonModule,
@@ -43,6 +48,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     NgxEditorModule,
     SharedModule
-  ]
+  ],
+  providers: [AdminService],
 })
 export class AdminModulesModule { }

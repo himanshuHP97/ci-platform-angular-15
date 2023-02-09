@@ -1,5 +1,5 @@
 export interface Missiontheme {
-  id:number;
-  themeName:string;
-  status:boolean;
+  id?:number;
+  name:string;
+  status:string;
 }

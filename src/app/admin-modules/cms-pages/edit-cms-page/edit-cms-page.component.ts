@@ -1,9 +1,10 @@
-import { Cmspage } from './../../interface/cmspage';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Editor, Validators } from 'ngx-editor';
-import { CmspageService } from '../../service/cmspage.service';
+
+import { Cmspage } from './../../interface/cmspage';
+import { AdminService } from './../../service/adminservices.service';
 
 @Component({
   selector: 'app-edit-cms-page',
@@ -18,7 +19,7 @@ export class EditCmsPageComponent implements OnInit, OnDestroy {
   cmspage!: Cmspage;
 
   constructor(
-    private cmspageService: CmspageService,
+    private cmspageService: AdminService,
     private router: Router,
     private formbulider: FormBuilder,
     public route: ActivatedRoute

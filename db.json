@@ -6,14 +6,12 @@
       "description": "<p>Testing done</p>",
       "slug": "done",
       "status": "Active"
-    },
-    {
-      "id": 2,
-      "title": "New",
-      "description": "<h6><em><strong><span style=\"color:#006b75;\"><span style=\"background-color:#fef2c0;\">New</span></span></strong></em></h6>",
-      "slug": "Privacy Policy",
-      "status": "InActive"
     }
   ],
-  "users": []
+  "users": [],
+  "missionskills": [],
+  "missionthemes": [],
+  "missions": [],
+  "missionsapplications": [],
+  "story": []
 }
