@@ -1,5 +1,5 @@
 export interface Missionskills {
-  id?:number;
-  name:string;
+  id:number;
+  skillname:string;
   status:string;
 }

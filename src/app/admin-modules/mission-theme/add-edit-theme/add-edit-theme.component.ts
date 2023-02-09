@@ -22,7 +22,7 @@ export class AddEditThemeComponent  implements OnInit, OnDestroy {
     public route: ActivatedRoute
   ) {
     this.themeForm = this.formbulider.group({
-      name: ['', Validators.required],
+      themename: ['', Validators.required],
       status: ['', Validators.required],
     });
   }
@@ -42,7 +42,7 @@ export class AddEditThemeComponent  implements OnInit, OnDestroy {
         this.themes = response;
         this.themeForm = this.formbulider.group({
           id: [this.themes.id],
-          name: [this.themes.name, Validators.required],
+          themename: [this.themes.themename, Validators.required],
           status: [this.themes.status, Validators.required],
         });
       },

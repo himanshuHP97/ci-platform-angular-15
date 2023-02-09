@@ -1,40 +1,70 @@
-<div class="row g-0 box">
-  <div class="d-md-flex col-xs-12 col-sm-12 col-md-8 col-lg-8 leftbox">
-    <div class="box-content">
-      <h2>Sed ut perspiciatis unde omnis iste natus voluptatem.</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua
-      </p>
-    </div>
-  </div>
-  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 rightbox">
-    <div class="login-form">
-      <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate autocomplete="false">
-        <div class="form-group">
-          <label>Email</label>
-          <input type="text" class="form-control" name="email" formControlName="email" />
-          <!-- <p *ngIf="displayMessage.email" class="help is-danger">
-             {{ displayMessage.email }}</p> -->
+<div class="h-screen w-screen px-0 text-black Parent bg-white">
+  <div class="w-full h-full px-0 mx-0">
+    <div class="grid w-full h-full md:grid-cols-12 lg:grid-cols-12">
+      <div class="lg:col-span-9 col-span-12 px-0">
+        <div class="w-full h-screen bg-transparent bg-cover bg-center bg-no-repeat"
+          style="background-image: url('../assets/images/Grow-Trees-On-the-path-to-environment-sustainability-login.png');">
+          <div class="w-50 h-auto mx-auto pt-80 space-y-5">
+            <div class="text-white py-3 grid text-2xl font-semibold">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+            <div class="text-white text-justify grid">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Perspiciatis quidem dolore eum, maiores eos ad tempore dolores
+              alias, ratione corporis assumenda repellat repellendus repudiandae
+              exercitationem aspernatur sequi culpa mollitia commodi.
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          <label>Password</label>
-          <input type="password" class="form-control" name="password" formControlName="password"/>
+      </div>
+      <div class="lg:col-span-3 col-span-12 mx-auto">
+        <div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+          <div class="flex w-full space-y-8">
+            <form class="mt-16 space-y-6" [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate
+              autocomplete="false">
+              <input type="hidden" name="remember" value="true" />
+              <div class="-space-y-px rounded-md shadow-sm">
+                <div class="mt-4">
+                  <label for="email-address" class="not-sr-only">Email</label>
+                  <input id="email-address" name="email" type="email" autocomplete="email" formControlName="email"
+                    class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                    placeholder="Email address" />
+                </div>
+                <div class="mt-4">
+                  <label for="password" class="not-sr-only">Password</label>
+                  <input id="password" name="password" type="password" autocomplete="current-password"
+                    formControlName="password"
+                    class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                    placeholder="Password" />
+                </div>
+              </div>
+              <div>
+                <div class="flex w-full items-center justify-center">
+                  <button class="border-2 rounded-full border-orange-400 w-32 h-10" [disabled]="loginForm.invalid">
+                    Login
+                  </button>
+                </div>
+              </div>
+              <div class="flex w-full items-center justify-center">
+                <div class="text-sm">
+                  <a class="font-medium text-black" routerLink="/ci-platform/forgot-password"
+                    routerLinkActive="active">Lost your password?
+                  </a>
+                </div>
+              </div>
+              <div class="flex w-full items-center justify-center">
+                <div class="text-sm">
+                  Don't have an account?
+                  <a routerLink="/ci-platform/registration" routerLinkActive="active"
+                    class="font-medium text-blue-500">Create an account</a>
+                </div>
+              </div>
+              <div class="flex w-full items-center justify-center">
+                <a routerLink="/ci-platform/privacy-policy" routerLinkActive="active"><span>Privacy Policy</span></a>
+              </div>
+            </form>
+          </div>
         </div>
-        <button type="submit" class="btn btn-black form-control" [disabled]="loginForm.invalid">
-          Login
-        </button>
-        <div class="links">
-          <a routerLink="/ci-platform/forgot-password" routerLinkActive="active">Lost your password?</a>
-        </div>
-        <div class="links">
-          Don't have an account?
-          <a routerLink="/ci-platform/registration" routerLinkActive="active" style="color: rgb(41, 104, 182)">Create an
-            account</a>
-        </div>
-      </form>
-      <div class="privacy-policy">
-        <a routerLink="/ci-platform/privacy-policy" routerLinkActive="active"><span>Privacy Policy</span></a>
       </div>
     </div>
   </div>

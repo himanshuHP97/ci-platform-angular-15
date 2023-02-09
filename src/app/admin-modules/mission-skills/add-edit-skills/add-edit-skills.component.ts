@@ -1,8 +1,7 @@
 import { Missionskills } from './../../interface/missionskills';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Validators } from 'ngx-editor';
 import { AdminService } from '../../service/adminservices.service';
 
 @Component({
@@ -33,15 +32,10 @@ export class AddEditSkillsComponent implements OnInit, OnDestroy {
   }
   FormValidations() {
     this.skillForm = this.formbuilder.group({
-      name: ['', [Validators.required]],
+      id: [0],
+      skillname: ['', [Validators.required]],
       status: ['', [Validators.required]]
     });
-  }
-  get name() {
-    return this.skillForm.get('name') as FormControl;
-  }
-  get status() {
-    return this.skillForm.get('status') as FormControl;
   }
 
   onGetMissionSkill(id: number): void {
@@ -50,7 +44,7 @@ export class AddEditSkillsComponent implements OnInit, OnDestroy {
         this.skills = response;
         this.skillForm = this.formbuilder.group({
           id: [this.skills.id],
-          name: [this.skills.name, Validators.required],
+          skillname: [this.skills.skillname, Validators.required],
           status: [this.skills.status, Validators.required],
         });
       },
@@ -79,10 +73,13 @@ export class AddEditSkillsComponent implements OnInit, OnDestroy {
           () => console.log('Updated mission skill!')
         );
         this.router.navigate(['/admin-home/mission-skills']);
+      } else {
+        alert('Form is invalid, please enter data!')
       }
     }
   }
   OnCancel() {
+    this.skillForm.reset;
     this.router.navigateByUrl('/admin-home/mission-skills');
   }
 

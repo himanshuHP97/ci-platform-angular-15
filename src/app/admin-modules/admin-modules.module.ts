@@ -43,9 +43,9 @@ import { AddEditThemeComponent } from './mission-theme/add-edit-theme/add-edit-t
   ],
   imports: [
     CommonModule,
+    FormsModule,
     ReactiveFormsModule,
     AdminRoutingModule,
-    FormsModule,
     NgxEditorModule,
     SharedModule
   ],

@@ -1,9 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Editor } from 'ngx-editor';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder } from '@angular/forms';
 
-import { Cmspage } from '../../interface/cmspage';
 import { AdminService } from './../../service/adminservices.service';
 
 @Component({
@@ -22,10 +21,10 @@ export class AddCmsPageComponent implements OnInit, OnDestroy {
     private formbulider: FormBuilder
   ) {
     this.addpages = this.formbulider.group({
-      title: '',
-      description: '',
-      slug: '',
-      status: '',
+      title: ['', Validators.required],
+      description: ['', Validators.required],
+      slug: ['', Validators.required],
+      status: ['', Validators.required],
     });
   }
 
@@ -34,6 +33,9 @@ export class AddCmsPageComponent implements OnInit, OnDestroy {
   }
 
   onAddPage(): void {
+    if(this.addpages.invalid){
+      return;
+    }
     this.cmspageService.createPage(this.addpages.value).subscribe(
       (response) => console.log(response),
       (error: any) => console.log(error),
@@ -42,6 +44,7 @@ export class AddCmsPageComponent implements OnInit, OnDestroy {
     this.router.navigate(['/admin-home/cms-page']);
   }
   OnCancel() {
+    this.addpages.reset;
     this.router.navigateByUrl('/admin-home/cms-page');
   }
   // make sure to destory the editor
