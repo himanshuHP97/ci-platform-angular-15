@@ -5,11 +5,11 @@
         <li class="nav-item">
           <a class="nav-link text-black">Stories</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" appDropDown #open="appDropDown" #hide>
           <a class="nav-link dropdown-toggle" routerLink='/home/privacy-policy' routerLinkActive="active" role="button">
             Policy
             <span class="caret"></span></a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu" [ngClass]="{'show':open.isOpen}">
             <li><a class="dropdown-item">List1</a></li>
             <li><a class="dropdown-item">List2</a></li>
           </ul>
@@ -17,13 +17,13 @@
       </ul>
       <ul class="nav navbar-nav mb-2 mb-lg-0 ms-lg-4">
         <img class="img mr-2 rounded-circle" src="../../../assets/images/user-img.png" alt="" width="20px"
-        height="20px">
-        <li class="flex nav-item dropdown" appDropdown>
-          <a class="dropdown-toggle" role="button">User
+          height="20px">
+        <li class="nav-item dropdown" appDropDown #show="appDropDown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button">User
             Profile <span class="caret"></span></a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu" [ngClass]="{'show':show.isOpen}">
             <li><a class="dropdown-item">User Profile</a></li>
-            <li><a class="dropdown-item">Logout</a></li>
+            <li><a class="dropdown-item" (click)="onLogout()">Logout</a></li>
           </ul>
         </li>
       </ul>
