@@ -1,39 +1,31 @@
 <app-search-filter></app-search-filter>
-<div class="px-6 pt-2 pb-2 mb-3">
-  <span
-    class="inline-block border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+<div class="px-6 pt-2 pb-2 mb-3 my-2">
+  <span class="inline-flex border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
     #Tree Plantation</span>
-  <span
-    class="inline-block border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+  <span class="inline-flex border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
     #Canada</span>
-  <span
-    class="inline-block border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+  <span class="inline-flex border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
     #Toronto</span>
-    <span
-    class="inline-block border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+  <span class="inline-flex border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
     #Montreal</span>
-    <span
-    class="inline-block border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+  <span class="inline-flex border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
     #Environment</span>
-    <span
-    class="inline-block border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+  <span class="inline-flex border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
     #Nutrition</span>
-    <span
-    class="inline-block border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+  <span class="inline-flex border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
     #Anthropology</span>
-    <span
-    class="inline-block border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+  <span class="inline-flex border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
     #Environmental Science</span>
-    <span
-    class="inline-block border-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+  <span role="button"
+    class="inline-flex border-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
     Clear all</span>
 </div>
 <div class="container w-full h-full">
   <div class="grid w-full h-full md:grid-cols-12 lg:grid-cols-12 items-center">
-    <div class="lg:col-span-8 md:col-span-6 sm:col-span-5">
-      <h4>Explore Mission</h4>
+    <div class="col-span-12 lg:col-span-8 md:col-span-6 sm:col-span-5">
+      <h4>Explore Mission 1</h4>
     </div>
-    <div class="lg:col-span-2 md:col-span-2 sm:col-span-3">
+    <div class="col-span-12 lg:col-span-2 md:col-span-2 sm:col-span-3">
       <div class="input-group-btn">
         <select class="form-select">
           <option>Sort By</option>
@@ -46,156 +38,125 @@
         </select>
       </div>
     </div>
-    <div class="lg:col-span-1 md:col-span-1 sm:col-span-1 gridview">
+    <div class="col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-1 gridview">
       <div id="grid">
-        <img src="../../../assets/images/grid.png" class="bg-slate-400 float-end" style="cursor: pointer;">
+        <img src="../../../assets/images/grid.png" class="bg-slate-400 float-end cursor-pointer">
       </div>
     </div>
     <div class="lg:col-span-1 md:col-span-1 sm:col-span-1 listview">
       <div id="list">
-        <img src="../../../assets/images/list.png" class="mx-auto float-end" style="cursor: pointer;">
+        <img src="../../../assets/images/list.png" class="float-end cursor-pointer">
       </div>
     </div>
   </div>
 </div>
-<section class="py-5">
+<section class="my-3">
   <ng-container *ngIf="(mission | paginate:{itemsPerPage:10,currentPage:1,totalItems:50}) as response">
-    <div class="container px-4 px-lg-5 mt-2">
-      <div class="row justify-content-start">
-        <div class="col mb-3">
-          <div class="card">
-            <div>
-              <div class="card-icon">
-                <div class="location">
-                  <i class="fa fa-location-arrow">Toronto</i>
-                </div>
-                <div class="favourite">
-                  <i class="fa fa-heart-o"></i>
-                </div>
-                <div class="Useradd">
-                  <i class="fa fa-user-plus"></i>
-                </div>
+    <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+      <div class="flex-row items-center w-full border-2 bg-white">
+        <div class="relative">
+          <div class="absolute  inline-flex justify-end w-full my-3 px-3">
+            <i class="fa fa-location-arrow text-white bg-black opacity-60 px-3 py-2 rounded-full"><span
+                class="px-2">Toronto</span></i>
+          </div>
+          <div class="absolute inline-flex justify-end w-full my-24 px-3">
+            <i class="fa fa-heart-o text-white bg-black opacity-80 px-3 py-2 rounded-full font-semibold"></i>
+          </div>
+          <div class="absolute inline-flex justify-end w-full my-36 px-3">
+            <i class="fa fa-user-plus text-white bg-black opacity-60 px-3 py-2 rounded-full"></i>
+          </div>
+          <img class="w-full border-0"
+            src="../../../assets/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="..." />
+          <div class="relative -top-4 bg-white rounded-full w-50 mx-auto text-center">Environment</div>
+        </div>
+        <div class="px-6 py-3">
+          <div class="font-bold text-xl mb-2 text-justify">Grow Trees – On the path to environment sustainability</div>
+          <p class="text-gray-700 text-sm text-justify">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis
+            eaque, exercitationem praesentium nihil.
+          </p>
+        </div>
+        <div class="cardbody">
+          <div class="flex justify-between items-center px-6 py-3">
+            <span>Tree Canada</span>
+            <span class="star-rating text-lg text-yellow-300">
+              <i class="fa fa-star" id="star1"></i>
+              <i class="fa fa-star" id="star2"></i>
+              <i class="fa fa-star" id="star3"></i>
+              <i class="fa fa-star" id="star4"></i>
+              <i class="fa fa-star" id="star5"></i>
+            </span>
+          </div>
+          <div class="border-t border-b">
+            <div class="flex items-center justify-center w-full -mt-3">
+              <div class="border rounded-full px-2 bg-white">
+                From 10/01/2019 until 25/02/2019
               </div>
-              <img class="card-img-top img-thumbnail border-0"
-                src="../../../assets/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="..." />
-              <div class="mission-theme text-center">Environment</div>
             </div>
-            <div class="card-body p-4">
-              <h5 class="card-title mission-title"> Grow Trees – On the path to environment sustainability</h5>
-              <p class="card-text mission-description">Some quick example text to build on the card title and make up the
-                bulk of the card's
-                content.</p>
-              <div class="orignaization-name">
-                Tree Canada
-                <span class="star-rating float-end">
-                  <i class="fa fa-star" id="star1"></i>
-                  <i class="fa fa-star" id="star2"></i>
-                  <i class="fa fa-star" id="star3"></i>
-                  <i class="fa fa-star" id="star4"></i>
-                  <i class="fa fa-star" id="star5"></i>
+            <div class="flex items-center justify-between text-gray-400 my-2">
+              <div class="inline-flex">
+                <span>
+                  <img src="../../../assets/images/Seats-left.png" class="w-7 h-7">
                 </span>
-              </div>
-              <div class="card-divider">
-                <div class="mission-date ">
-                  <div class="mission-date-content">
-                    From 10/01/2019 until 25/02/2019
-                  </div>
-                </div>
-
-                <div class="mission-seats-deadline d-flex align-items-center justify-content-between">
-                  <div class="seats d-inline-flex">
-                    <span>
-                      <img src="../../../assets/images/Seats-left.png" width="30px" height="30px">
-                    </span>
-                    <div class="seats-left">
-                      10
-                      <div class="text-style-1">
-                        Seats left
-                      </div>
-                    </div>
-                  </div>
-                  <div class="deadline d-inline-flex">
-                    <span>
-                      <img src="../../../assets/images/deadline.png" width="35px" height="35px">
-                    </span>
-                    <div class="deadline-date">
-                      09/01/2019
-                      <div class="text-style-1">
-                        Deadline
-                      </div>
-                    </div>
+                <div class="text-gray-600">
+                  10
+                  <div class="text-style-1">
+                    Seats left
                   </div>
                 </div>
               </div>
-              <div class="button">
-                <button class="btn">
-                  Apply <i class="fa fa-arrow-right"></i>
-                </button>
+              <div class="inline-flex">
+                <span>
+                  <img src="../../../assets/images/deadline.png" class="w-8 h-8">
+                </span>
+                <div class="text-gray-600">
+                  09/01/2019
+                  <div class="text-style-1">
+                    Deadline
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
+          <div class="flex justify-center mx-auto my-3 items-center w-52 border-2 rounded-full border-orange-500">
+            <button class="text-base py-2 text-orange-500 font-normal">Apply <i class="fa fa-arrow-right"></i></button>
           </div>
         </div>
       </div>
     </div>
   </ng-container>
 
-  <!-- <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
-    <div class="rounded overflow-hidden shadow-lg">
-      <img class="w-full" src="/mountain.jpg" alt="Mountain">
-      <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">Mountain</div>
-        <p class="text-gray-700 text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis
-          eaque, exercitationem praesentium nihil.
-        </p>
-      </div>
-      <div class="px-6 pt-4 pb-2">
-        <span
-          class="inline-block border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-        <span
-          class="inline-block border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-        <span
-          class="inline-block border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-      </div>
-    </div>
-    <div class="rounded overflow-hidden shadow-lg">
-      <img class="w-full" src="/river.jpg" alt="River">
-      <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">River</div>
-        <p class="text-gray-700 text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis
-          eaque, exercitationem praesentium nihil.
-        </p>
-      </div>
-      <div class="px-6 pt-4 pb-2">
-        <span
-          class="inline-block border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-        <span
-          class="inline-block border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-        <span
-          class="inline-block border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#summer</span>
+  <ng-container *ngIf="(mission | paginate:{itemsPerPage:10,currentPage:1,totalItems:50}) as response">
+    <div class="p-10 w-full lg:max-w-full lg:flex">
+      <div class="flex w-full border-2 bg-white">
+        <div class="">
+          <div class="absolute text-white px-3">
+            <i class="fa fa-location-arrow text-white bg-black opacity-60 px-3 py-2 rounded-full"><span
+                class="px-2">Toronto</span></i>
+          </div>
+          <div class="absolute px-3">
+            <i class="fa fa-heart-o text-white bg-black opacity-80 px-3 py-2 rounded-full font-semibold"></i>
+          </div>
+          <div class="absolute px-3">
+            <i class="fa fa-user-plus text-white bg-black opacity-60 px-3 py-2 rounded-full"></i>
+          </div>
+          <img class="w-full border-0"
+          src="../../../assets/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="..." />
+          <div class="relative -top-4 bg-white rounded-full w-50 mx-auto text-center">Environment</div>
+        </div>
+        <div class="">
+          <span class=""><i class="fa fa-location-arrow">Toronto</i></span>
+          <span class=""><i class="fa fa-heart-o"></i></span>
+          <span class=""><i class="fa fa-user-plus"></i></span>
+          <div class="font-bold text-xl mb-2 text-justify">Grow Trees – On the path to environment sustainability</div>
+          <p class="text-gray-700 text-sm text-justify">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis
+            eaque, exercitationem praesentium nihil.
+          </p>
+        </div>
       </div>
     </div>
-
-    <div class="rounded overflow-hidden shadow-lg">
-      <img class="w-full" src="/forest.jpg" alt="Forest">
-      <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">Forest</div>
-        <p class="text-gray-700 text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis
-          eaque, exercitationem praesentium nihil.
-        </p>
-      </div>
-      <div class="px-6 pt-4 pb-2">
-        <span
-          class="inline-block border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-        <span
-          class="inline-block border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-        <span
-          class="inline-block border border-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#fall</span>
-      </div>
-    </div>
-  </div> -->
+  </ng-container>
 </section>
 
 <div class="flex items-center justify-center">
