@@ -1,9 +1,12 @@
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Validators } from 'ngx-editor';
-import { AdminService } from '../../service/adminservices.service';
-import { Missiontheme } from './../../interface/missiontheme';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+
+import { Missiontheme } from 'src/app/interface/missiontheme';
+import { AdminService } from 'src/app/service/adminservices.service';
+
+
 
 @Component({
   selector: 'app-add-edit-theme',

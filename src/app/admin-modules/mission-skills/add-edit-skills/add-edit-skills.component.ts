@@ -1,8 +1,10 @@
-import { Missionskills } from './../../interface/missionskills';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AdminService } from '../../service/adminservices.service';
+
+import { Missionskills } from 'src/app/interface/missionskills';
+import { AdminService } from 'src/app/service/adminservices.service';
+
 
 @Component({
   selector: 'app-add-edit-skills',

@@ -1,32 +1,39 @@
-<nav class="navbar align-items-center navbar-expand-sm navbar-expand-md navbar-expand-lg navbar-light">
-  <div class="container px-4 px-lg-5">
-    <div class="navbar-collapse align-content-center">
-      <ul class="nav navbar-nav me-auto mb-lg-0 ms-lg-4">
-        <li class="nav-item">
-          <a class="nav-link text-black">Stories</a>
+<nav class="flex items-center justify-between w-full h-full">
+  <div class="flex justify-between items-center w-full px-4">
+      <ul class="flex py-2 px-4">
+        <li class="nav-item px-2">
+          <a class="nav-link text-black" routerLink="/user-home/story-page" routerLinkActive="active">Stories</a>
         </li>
-        <li class="nav-item dropdown" appDropDown #open="appDropDown" #hide>
-          <a class="nav-link dropdown-toggle" routerLink='/home/privacy-policy' routerLinkActive="active" role="button">
+        <li class="nav-item dropdown px-2" appDropDown #open="appDropDown" #hide>
+          <a class="nav-link dropdown-toggle" role="button">
             Policy
             <span class="caret"></span></a>
           <ul class="dropdown-menu" [ngClass]="{'show':open.isOpen}">
-            <li><a class="dropdown-item">List1</a></li>
-            <li><a class="dropdown-item">List2</a></li>
+            <li><a class="dropdown-item" routerLink="/user-home/policy-page" routerLinkActive="active">Policy Page</a>
+            </li>
           </ul>
         </li>
       </ul>
-      <ul class="nav navbar-nav mb-2 mb-lg-0 ms-lg-4">
-        <img class="img mr-2 rounded-circle" src="../../../assets/images/user-img.png" alt="" width="20px"
-          height="20px">
-        <li class="nav-item dropdown" appDropDown #show="appDropDown">
+      <ul class="flex py-2">
+        <img class="img mx-3 rounded-full" src="../../../assets/images/user-img.png" alt="" width="20px" height="20px">
+        <li class="dropdown mx-3" appDropDown #show="appDropDown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button">User
             Profile <span class="caret"></span></a>
-          <ul class="dropdown-menu" [ngClass]="{'show':show.isOpen}">
-            <li><a class="dropdown-item">User Profile</a></li>
-            <li><a class="dropdown-item" (click)="onLogout()">Logout</a></li>
+          <ul class="flex-row my-3 rounded-none items-center justify-center dropdown-menu"
+            [ngClass]="{'show':show.isOpen}">
+            <li class="text-black"><a class="dropdown-item hover:text-orange-400 bg-white"
+            routerLink="/user-home/user-profile" routerLinkActive="active:text-orange-400">My Profile</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li class="text-black"><a class="dropdown-item  hover:text-orange-400 bg-white"
+              routerLink="/user-home/volunteer-page" routerLinkActive="active:text-orange-400">Volunteering Timesheet</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li class="text-black"><a class="dropdown-item hover:text-orange-400 bg-white" (click)="onLogout()">Logout</a></li>
           </ul>
         </li>
       </ul>
-    </div>
   </div>
 </nav>

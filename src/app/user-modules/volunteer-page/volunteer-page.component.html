@@ -1,0 +1,230 @@
+<div class="container w-screen h-full mb-20">
+  <div class="flex justify-start items-center mx-5 my-10">
+    <h1 class="font-normal text-3xl">Volunteering Timesheet</h1>
+  </div>
+  <div class="grid h-full md:grid-cols-12 lg:grid-cols-12 mb-2">
+    <!-- Hours -->
+    <div class="lg:col-span-6 md:col-span-6 col-span-12 px-0 border mx-5">
+      <div class="flex-row items-center justify-start my-3 mx-6">
+        <div class="flex items-center justify-start">
+          <span class="text-lg">Volunteering Hours</span>
+        </div>
+        <div class="flex-row items-center justify-start my-3">
+          <div class="table-responsive">
+            <table class="table border-none" datatable id="datatable-search">
+              <thead>
+                <tr>
+                  <th>Mission</th>
+                  <th>Date</th>
+                  <th>Hours</th>
+                  <th>Minutes</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-normal leading-normal text-sm">Environment Conservation</td>
+                  <td class="font-normal leading-normal text-sm">
+                    22/02/2022</td>
+                  <td class="font-normal leading-normal text-sm">
+                    1h</td>
+                  <td class="font-normal leading-normal text-sm">
+                    30min</td>
+                  <td class="font-normal leading-normal text-sm flex-row justify-end items-center">
+                    <button class="ml-3 text-orange-500 hover:text-orange-500" data-bs-toggle="modal"
+                      data-bs-target="#HoursModal" data-bs-whatever="@mdo"><i class="fa fa-edit fa-lg"></i></button>
+                    <button class="ml-3" (click)="showModal()"><i class="fa fa-trash fa-lg"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Goal -->
+    <div class="h-100 lg:col-span-6 md:col-span-6 col-span-12 px-0 border mx-5">
+      <div class="flex-row items-center justify-start my-3 mx-6">
+        <div class="flex items-center justify-start">
+          <span class="text-lg">Volunteering Goal</span>
+        </div>
+        <div class="flex-row items-center justify-start my-3">
+          <div class="table-responsive">
+            <table class="table border-none" datatable id="datatable-search">
+              <thead>
+                <tr>
+                  <th>Mission</th>
+                  <th>Date</th>
+                  <th>Action</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-normal leading-normal text-sm">Environment Conservation</td>
+                  <td class="font-normal leading-normal text-sm">
+                    22/02/2022</td>
+                  <td class="font-normal leading-normal text-sm">
+                    1</td>
+                  <td class="font-normal leading-normal text-sm flex-row justify-end items-center">
+                    <button class="ml-3 text-orange-500 hover:text-orange-500" data-bs-toggle="modal"
+                      data-bs-target="#GoalModal" data-bs-whatever="@mdo"><i class="fa fa-edit fa-lg"></i></button>
+                    <button class="ml-3" (click)="showModal()"><i class="fa fa-trash fa-lg"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="flex w-full items-center position-sticky border-top">
+  <nav class="flex w-full items-center py-2">
+    <div class="container items-center flex w-full px-4 px-lg-5">
+      <ul class="flex items-center justify-start">
+        <li class="flex items-center mx-2 mb-2">
+          <a class="text-black" routerLink="/user-home/policy-page" routerLinkActive="active">Privacy Pocliy</a>
+        </li>
+        <li class="flex items-center mx-2 mb-2">
+          <a class="text-black" routerLink="/user-home/policy-page" routerLinkActive="active">Cookie Pocliy</a>
+        </li>
+        <li class="flex items-center mx-2 mb-2">
+          <a class="text-black" routerLink="/user-home/policy-page" routerLinkActive="active">Terms of Use</a>
+        </li>
+      </ul>
+      <ul class="flex items-center">
+        <span class="mb-2"> &copy; 2023, All right reserved</span>
+      </ul>
+    </div>
+  </nav>
+</footer>
+
+<!-- Edit-Modal Volunteering Hours-->
+<div class="modal modal-lg fade" id="HoursModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Please input below Volunteering Hours</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fa fa-close"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="mission">Mission</label>
+            <select class="block w-full flex-1 border border-gray-500" name="mission" id="mission">
+              <option value="">Select</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="date" class="col-form-label">Date Volunteered</label>
+            <input class="block w-full flex-1 border border-gray-500" type="date" name="date" id="date">
+          </div>
+          <div class="block w-full flex-1 mb-3">
+            <div class="flex">
+              <label for="hours" class="col-form-label w-50">Hours</label>
+              <label for="minutes" class="col-form-label w-50">Minutes</label>
+            </div>
+            <div class="flex">
+              <input class="border border-gray-500 w-50" type="text" name="hours" id="hours">
+              <input class="border border-gray-500 w-50" type="text" name="minutes" id="minutes">
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="message" class="col-form-label">Message</label>
+            <textarea class="block w-full flex-1 border border-gray-500" name="message" id="message" cols="50"
+              rows="4"></textarea>
+          </div>
+          <div class="flex items-center justify-end w-full">
+            <button type="button"
+              class="flex border-2 rounded-full py-2 px-4 mx-2 text-sm font-medium text-gray-600 border-gray-400" data-bs-dismiss="modal">Canecl</button>
+            <button type="submit"
+              class="flex border-2 border-orange-400 rounded-full py-2 px-4 text-sm font-medium text-orange-600 ">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit-Modal Volunteering Goal-->
+<div class="modal modal-lg fade" id="GoalModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Please input below Volunteering Goal</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fa fa-close"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="mission">Mission</label>
+            <select class="block w-full flex-1 border border-gray-500" name="mission" id="mission">
+              <option value="">Select</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="date" class="col-form-label">Action</label>
+            <input class="block w-full flex-1 border border-gray-500" type="text" name="date" id="date" placeholder="Enter Action">
+          </div>
+          <div class="mb-3">
+            <label for="date" class="col-form-label">Date Volunteered</label>
+            <input class="block w-full flex-1 border border-gray-500" type="date" name="date" id="date" placeholder="Select Date">
+          </div>
+          <div class="mb-3">
+            <label for="message" class="col-form-label">Message</label>
+            <textarea class="block w-full flex-1 border border-gray-500" name="message" id="message" cols="50"
+              rows="4" placeholder="Enter your message"></textarea>
+          </div>
+          <div class="flex items-center justify-end w-full">
+            <button type="button"
+              class="flex border-2 rounded-full py-2 px-4 mx-2 text-sm font-medium text-gray-600 border-gray-400" data-bs-dismiss="modal">Canecl</button>
+            <button type="submit"
+              class="flex border-2 border-orange-400 rounded-full py-2 px-4 text-sm font-medium text-orange-600 ">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Delete -->
+<div class="modal relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="ModalPopup"
+  [ngStyle]="{'display':displayStyle}">
+
+  <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+  <div class="fixed inset-0 z-10 overflow-y-auto">
+    <div class="flex min-h-full items-end justify-center text-center sm:items-center sm:p-0">
+      <div
+        class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+        <div class="bg-white pt-5 pb-4 sm:p-6 sm:pb-4">
+          <div class="sm:flex sm:items-start">
+            <div class="sm:mt-0 sm:ml-4 sm:text-left">
+              <h3 class="text-lg font-medium leading-6 text-gray-900" id="modal-title"> Delete</h3>
+              <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"
+                (click)="hideModal()"></button>
+              <div class="mt-2">
+                <p class="text-lg text-gray-500">
+                  Are you sure you want to delete?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+          <button type="button"
+            class="mt-3 inline-flex w-full justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Delete</button>
+          <button type="button"
+            class="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+            data-dismiss="modal" (click)="hideModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

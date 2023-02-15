@@ -1,7 +1,11 @@
 export interface Missionapplication {
   id: number;
-  userId: string;
+  userId: number;
+  missionId: number;
   missionTitle: string;
   userFullName: string;
-  ApproveDecline: boolean;
+  appliedDate: Date;
+  sheet: number;
+  status: string;
 }
+

@@ -2,8 +2,10 @@ import { Router } from '@angular/router';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/internal/Subscription';
 
-import { Cmspage } from './../interface/cmspage';
-import { AdminService } from './../service/adminservices.service';
+import { Cmspage } from 'src/app/interface/cmspage';
+import { AdminService } from 'src/app/service/adminservices.service';
+
+
 
 @Component({
   selector: 'app-cms-pages',

@@ -4,11 +4,15 @@ import { CommonModule } from '@angular/common';
 import { ComponentsModule } from '../Components/components.module';
 
 import { HomeComponent } from './Mission Module/home/home.component';
-import { UserProfileComponent } from './Mission Module/user-profile/user-profile.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserModulesComponent } from './user-modules.component';
 import { UserRoutingModule } from './user-routing.module';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { StoryPageComponent } from './story-page/story-page.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { StoryDetailsComponent } from './story-page/story-details/story-details.component';
+import { StoryShareComponent } from './story-page/story-share/story-share.component';
+import { VolunteerPageComponent } from './volunteer-page/volunteer-page.component';
 
 
 
@@ -18,13 +22,17 @@ import { StoryPageComponent } from './story-page/story-page.component';
     UserModulesComponent,
     UserProfileComponent,
     PrivacyPolicyComponent,
-    StoryPageComponent
+    StoryPageComponent,
+    StoryDetailsComponent,
+    StoryShareComponent,
+    VolunteerPageComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     ComponentsModule,
-    UserRoutingModule
+    UserRoutingModule,
+    NgxPaginationModule,
   ]
 })
 export class UserModulesModule { }

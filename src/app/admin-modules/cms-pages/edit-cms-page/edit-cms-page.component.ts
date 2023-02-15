@@ -3,8 +3,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Editor, Validators } from 'ngx-editor';
 
-import { Cmspage } from './../../interface/cmspage';
-import { AdminService } from './../../service/adminservices.service';
+import { Cmspage } from 'src/app/interface/cmspage';
+import { AdminService } from 'src/app/service/adminservices.service';
+
+
 
 @Component({
   selector: 'app-edit-cms-page',

@@ -3,7 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Editor } from 'ngx-editor';
 import { Router } from '@angular/router';
 
-import { AdminService } from './../../service/adminservices.service';
+import { AdminService } from 'src/app/service/adminservices.service';
+
 
 @Component({
   selector: 'app-add-cms-page',

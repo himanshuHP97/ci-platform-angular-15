@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Missionskills } from 'src/app/interface/missionskills';
+import { AdminService } from 'src/app/service/adminservices.service';
 
-import { Missionskills } from './../interface/missionskills';
-import { AdminService } from '../service/adminservices.service';
+
 
 @Component({
   selector: 'app-mission-skills',

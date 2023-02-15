@@ -2,8 +2,8 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
-import { Missiontheme } from './../interface/missiontheme';
-import { AdminService } from '../service/adminservices.service';
+import { Missiontheme } from 'src/app/interface/missiontheme';
+import { AdminService } from 'src/app/service/adminservices.service';
 
 @Component({
   selector: 'app-mission-theme',

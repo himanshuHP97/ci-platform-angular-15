@@ -1,11 +1,15 @@
 export interface Story {
   id: number;
+  missionId:number;
+  userId:number;
+  userFullName:string;
   title: string;
   missionTitle: string;
   description: string;
   photos: [];
-  videos: [];
+  videoUrl:string;
   status: StoryStatus;
+  isActive:boolean;
 }
 
 enum StoryStatus {
