@@ -52,7 +52,7 @@ export class MissionSkillsComponent implements OnInit, OnDestroy {
         if (response.id != 0) {
           window.alert('Skill deleted!');
           this.displayStyle = 'none';
-          window.location.reload();
+          this.onGetMissionSkills();
         } else {
           window.alert('An error occurred!');
         }

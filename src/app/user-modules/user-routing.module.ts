@@ -1,3 +1,4 @@
+import { VolunteeringMissionComponent } from './Mission Module/volunteering-mission/volunteering-mission.component';
 import { HomeComponent } from './Mission Module/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -15,6 +16,7 @@ const routes: Routes = [
     path: '', component: UserModulesComponent,
     children: [
       { path: '', component: HomeComponent },
+      { path: 'volunteering-mission', component: VolunteeringMissionComponent },
       { path: 'story-page', component: StoryPageComponent },
       { path: 'story-detail', component: StoryDetailsComponent },
       { path: 'story-share', component: StoryShareComponent },

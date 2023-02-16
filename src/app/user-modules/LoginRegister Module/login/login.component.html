@@ -1,4 +1,7 @@
 <div class="h-screen w-screen px-0 text-black Parent bg-white">
+  <div class="flex w-full h-full bg-white opacity-75 justify-center items-center" *ngIf="isLoading" style="text-align: center;">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
   <div class="w-full h-full px-0 mx-0">
     <div class="grid w-full h-full md:grid-cols-12 lg:grid-cols-12">
       <div class="lg:col-span-9 col-span-12 px-0">
@@ -29,6 +32,11 @@
                   <input id="email-address" name="email" type="email" autocomplete="email" formControlName="email"
                     class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                     placeholder="Email address" />
+                    <span class="text-danger" *ngIf="email.invalid && (email.touched || submitted)">
+                      <span *ngIf="email.hasError('required') || email.hasError('email')">
+                        Enter your email please!
+                      </span>
+                    </span>
                 </div>
                 <div class="mt-4">
                   <label for="password" class="not-sr-only">Password</label>
@@ -36,11 +44,14 @@
                     formControlName="password"
                     class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                     placeholder="Password" />
+                    <span class="text-danger" *ngIf="password.invalid && (password.touched || submitted)">
+                      Enter your password please!
+                    </span>
                 </div>
               </div>
               <div>
                 <div class="flex w-full items-center justify-center">
-                  <button class="border-2 rounded-full border-orange-400 w-32 h-10" [disabled]="loginForm.invalid">
+                  <button class="border-2 rounded-full border-orange-400 w-32 h-10">
                     Login
                   </button>
                 </div>

@@ -1,5 +1,7 @@
+import { AddEditThemeComponent } from './mission-theme/add-edit-theme/add-edit-theme.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './../service/auth.guard';
 
 import { UsersComponent } from './users/users.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -18,6 +20,7 @@ const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
+    canActivate:[AuthGuard],
     children: [
       { path: 'users', component: UsersComponent },
 
@@ -35,8 +38,8 @@ const routes: Routes = [
 
       //mission-theme routing
       { path: 'mission-themes', component: MissionThemeComponent },
-      { path: 'add-edit-theme', component: AddEditSkillsComponent },
-      { path: 'add-edit-theme/:id', component: AddEditSkillsComponent },
+      { path: 'add-edit-theme', component: AddEditThemeComponent },
+      { path: 'add-edit-theme/:id', component: AddEditThemeComponent },
 
       { path: 'mission-application', component: MissionApplicationComponent },
 

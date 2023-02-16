@@ -1,3 +1,4 @@
+import { SharedModule } from './../../Shared/shared.module';
 import { PlatformLoginRoutingModule } from './platform-login-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -19,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     ReactiveFormsModule,
     PlatformLoginRoutingModule
   ],

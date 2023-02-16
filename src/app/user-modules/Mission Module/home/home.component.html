@@ -52,7 +52,149 @@
 </div>
 <section class="my-3">
   <ng-container *ngIf="(mission | paginate:{itemsPerPage:10,currentPage:1,totalItems:50}) as response">
+    <!-- grid -->
     <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+      <div class="flex-row items-center w-full border-2 bg-white">
+        <div class="relative">
+          <div class="absolute  inline-flex justify-end w-full my-3 px-3">
+            <i class="fa fa-location-arrow text-white bg-black opacity-60 px-3 py-2 rounded-full"><span
+                class="px-2">Toronto</span></i>
+          </div>
+          <div class="absolute inline-flex justify-end w-full my-24 px-3">
+            <i class="fa fa-heart-o text-white bg-black opacity-80 px-3 py-2 rounded-full font-semibold"></i>
+          </div>
+          <div class="absolute inline-flex justify-end w-full my-36 px-3">
+            <i class="fa fa-user-plus text-white bg-black opacity-60 px-3 py-2 rounded-full"></i>
+          </div>
+          <img class="w-full border-0"
+            src="../../../assets/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="..." />
+          <div class="relative -top-4 bg-white rounded-full w-50 mx-auto text-center">Environment</div>
+        </div>
+        <div class="px-6 py-3">
+          <div class="font-bold text-xl mb-2 text-justify">Grow Trees – On the path to environment sustainability</div>
+          <p class="text-gray-700 text-sm text-justify">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis
+            eaque, exercitationem praesentium nihil.
+          </p>
+        </div>
+        <div class="cardbody">
+          <div class="flex justify-between items-center px-6 py-3">
+            <span>Tree Canada</span>
+            <span class="star-rating text-lg text-yellow-300">
+              <i class="fa fa-star" id="star1"></i>
+              <i class="fa fa-star" id="star2"></i>
+              <i class="fa fa-star" id="star3"></i>
+              <i class="fa fa-star" id="star4"></i>
+              <i class="fa fa-star" id="star5"></i>
+            </span>
+          </div>
+          <div class="border-t border-b">
+            <div class="flex items-center justify-center w-full -mt-3">
+              <div class="border rounded-full px-2 bg-white">
+                From 10/01/2019 until 25/02/2019
+              </div>
+            </div>
+            <div class="flex items-center justify-between text-gray-400 my-2">
+              <div class="inline-flex">
+                <span>
+                  <img src="../../../assets/images/Seats-left.png" class="w-7 h-7">
+                </span>
+                <div class="text-gray-600">
+                  10
+                  <div class="text-style-1">
+                    Seats left
+                  </div>
+                </div>
+              </div>
+              <div class="inline-flex">
+                <span>
+                  <img src="../../../assets/images/deadline.png" class="w-8 h-8">
+                </span>
+                <div class="text-gray-600">
+                  09/01/2019
+                  <div class="text-style-1">
+                    Deadline
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-center mx-auto my-3 items-center w-52 border-2 rounded-full border-orange-500">
+            <button class="text-base py-2 text-orange-500 font-normal">Apply <i class="fa fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="flex-row items-center w-full border-2 bg-white">
+        <div class="relative">
+          <div class="absolute  inline-flex justify-end w-full my-3 px-3">
+            <i class="fa fa-location-arrow text-white bg-black opacity-60 px-3 py-2 rounded-full"><span
+                class="px-2">Toronto</span></i>
+          </div>
+          <div class="absolute inline-flex justify-end w-full my-24 px-3">
+            <i class="fa fa-heart-o text-white bg-black opacity-80 px-3 py-2 rounded-full font-semibold"></i>
+          </div>
+          <div class="absolute inline-flex justify-end w-full my-36 px-3">
+            <i class="fa fa-user-plus text-white bg-black opacity-60 px-3 py-2 rounded-full"></i>
+          </div>
+          <img class="w-full border-0"
+            src="../../../assets/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="..." />
+          <div class="relative -top-4 bg-white rounded-full w-50 mx-auto text-center">Environment</div>
+        </div>
+        <div class="px-6 py-3">
+          <div class="font-bold text-xl mb-2 text-justify">Grow Trees – On the path to environment sustainability</div>
+          <p class="text-gray-700 text-sm text-justify">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis
+            eaque, exercitationem praesentium nihil.
+          </p>
+        </div>
+        <div class="cardbody">
+          <div class="flex justify-between items-center px-6 py-3">
+            <span>Tree Canada</span>
+            <span class="star-rating text-lg text-yellow-300">
+              <i class="fa fa-star" id="star1"></i>
+              <i class="fa fa-star" id="star2"></i>
+              <i class="fa fa-star" id="star3"></i>
+              <i class="fa fa-star" id="star4"></i>
+              <i class="fa fa-star" id="star5"></i>
+            </span>
+          </div>
+          <div class="border-t border-b">
+            <div class="flex items-center justify-center w-full -mt-3">
+              <div class="border rounded-full px-2 bg-white">
+                From 10/01/2019 until 25/02/2019
+              </div>
+            </div>
+            <div class="flex items-center justify-between text-gray-400 my-2">
+              <div class="inline-flex">
+                <span>
+                  <img src="../../../assets/images/Seats-left.png" class="w-7 h-7">
+                </span>
+                <div class="text-gray-600">
+                  10
+                  <div class="text-style-1">
+                    Seats left
+                  </div>
+                </div>
+              </div>
+              <div class="inline-flex">
+                <span>
+                  <img src="../../../assets/images/deadline.png" class="w-8 h-8">
+                </span>
+                <div class="text-gray-600">
+                  09/01/2019
+                  <div class="text-style-1">
+                    Deadline
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-center mx-auto my-3 items-center w-52 border-2 rounded-full border-orange-500">
+            <button class="text-base py-2 text-orange-500 font-normal" routerLink="/user-home/volunteering-mission"
+              routerLinkActive="active">View Details <i class="fa fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
       <div class="flex-row items-center w-full border-2 bg-white">
         <div class="relative">
           <div class="absolute  inline-flex justify-end w-full my-3 px-3">
@@ -126,7 +268,8 @@
     </div>
   </ng-container>
 
-  <ng-container *ngIf="(mission | paginate:{itemsPerPage:10,currentPage:1,totalItems:50}) as response">
+  <!-- List -->
+  <!-- <ng-container *ngIf="(mission | paginate:{itemsPerPage:10,currentPage:1,totalItems:50}) as response">
     <div class="p-10 w-full lg:max-w-full lg:flex">
       <div class="flex w-full border-2 bg-white">
         <div class="">
@@ -141,7 +284,7 @@
             <i class="fa fa-user-plus text-white bg-black opacity-60 px-3 py-2 rounded-full"></i>
           </div>
           <img class="w-full border-0"
-          src="../../../assets/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="..." />
+            src="../../../assets/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="..." />
           <div class="relative -top-4 bg-white rounded-full w-50 mx-auto text-center">Environment</div>
         </div>
         <div class="">
@@ -156,7 +299,7 @@
         </div>
       </div>
     </div>
-  </ng-container>
+  </ng-container> -->
 </section>
 
 <div class="flex items-center justify-center">

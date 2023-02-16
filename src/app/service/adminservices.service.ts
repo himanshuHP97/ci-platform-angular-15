@@ -8,7 +8,7 @@ import { Story } from '../interface/story';
 import { Cmspage } from '../interface/cmspage';
 import { Mission } from '../interface/mission';
 import { Missionskills } from '../interface/missionskills';
-import { Missiontheme } from './../interface/missiontheme';
+import { Missiontheme } from '../interface/missiontheme';
 import { Missionapplication } from '../interface/missionapplication';
 import { environment } from 'src/environments/environment';
 
@@ -41,6 +41,12 @@ export class AdminService {
 
   deletePage(id: number): Observable<Cmspage> {
     return this.http.delete<Cmspage>(`${this.apiurl}/cmspages/${id}`);
+  }
+  //#endregion
+
+  //#region Login
+  getLogin(user:User): Observable<User[]> {
+    return this.http.get<User[]>(`${this.apiurl}/users`);
   }
   //#endregion
 

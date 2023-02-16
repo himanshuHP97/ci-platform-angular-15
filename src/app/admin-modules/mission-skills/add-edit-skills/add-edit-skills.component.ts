@@ -60,13 +60,12 @@ export class AddEditSkillsComponent implements OnInit, OnDestroy {
       return;
     }
     else {
-      if (this.skillForm.value != null && this.skillForm.value != '') {
+      if (this.skillForm.value != null && this.id == null && this.skillForm.value != '') {
         this.missionSkillService.createMissionSkill(this.skillForm.value).subscribe(
           (response) => console.log(response),
           (error: any) => console.log(error),
           () => console.log('Added mission skill!')
         );
-        this.router.navigate(['/admin-home/mission-skills']);
       }
       else if (this.id != null || this.id != '0' && (this.skillForm.value != null && this.skillForm.value != '')) {
         this.missionSkillService.updateMissionSkill(this.skillForm.value).subscribe(
@@ -74,10 +73,10 @@ export class AddEditSkillsComponent implements OnInit, OnDestroy {
           (error: any) => console.log(error),
           () => console.log('Updated mission skill!')
         );
-        this.router.navigate(['/admin-home/mission-skills']);
       } else {
         alert('Form is invalid, please enter data!')
       }
+      this.router.navigate(['/admin-home/mission-skills']);
     }
   }
   OnCancel() {

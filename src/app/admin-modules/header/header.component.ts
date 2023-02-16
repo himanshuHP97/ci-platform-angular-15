@@ -1,3 +1,4 @@
+import { LoginService } from 'src/app/service/login.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,14 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-headerDate!: number;
+  headerDate!: number;
 
-constructor(private router:Router){}
+  constructor(private router: Router, private loginService: LoginService) { }
 
   ngOnInit(): void {
     this.headerDate = Date.now();
   }
   onLogout() {
-      this.router.navigate(['/ci-platform']);
+    this.loginService.logout();
   }
 }

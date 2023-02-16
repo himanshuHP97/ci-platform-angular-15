@@ -17,7 +17,7 @@ export class MissionThemeComponent implements OnInit, OnDestroy {
   colorStatus = '';
   subscriber!: Subscription;
 
-  constructor(private missionThemeService: AdminService, private router: Router) {}
+  constructor(private missionThemeService: AdminService, private router: Router) { }
 
   ngOnInit(): void {
     this.onGetMissionSkills();
@@ -51,7 +51,7 @@ export class MissionThemeComponent implements OnInit, OnDestroy {
         if (response.id != 0) {
           window.alert('Theme deleted!');
           this.displayStyle = 'none';
-          window.location.reload();
+          this.onGetMissionSkills();
         } else {
           window.alert('An error occurred!');
         }

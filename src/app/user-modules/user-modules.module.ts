@@ -13,6 +13,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { StoryDetailsComponent } from './story-page/story-details/story-details.component';
 import { StoryShareComponent } from './story-page/story-share/story-share.component';
 import { VolunteerPageComponent } from './volunteer-page/volunteer-page.component';
+import { VolunteeringMissionComponent } from './Mission Module/volunteering-mission/volunteering-mission.component';
 
 
 
@@ -25,7 +26,8 @@ import { VolunteerPageComponent } from './volunteer-page/volunteer-page.componen
     StoryPageComponent,
     StoryDetailsComponent,
     StoryShareComponent,
-    VolunteerPageComponent
+    VolunteerPageComponent,
+    VolunteeringMissionComponent
   ],
   imports: [
     CommonModule,

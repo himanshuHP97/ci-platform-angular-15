@@ -13,7 +13,7 @@ import { AdminService } from 'src/app/service/adminservices.service';
   templateUrl: './add-edit-theme.component.html',
   styleUrls: ['./add-edit-theme.component.scss']
 })
-export class AddEditThemeComponent  implements OnInit, OnDestroy {
+export class AddEditThemeComponent implements OnInit, OnDestroy {
   themeForm!: FormGroup;
   id!: string | null;
   themes!: Missiontheme;
@@ -54,22 +54,26 @@ export class AddEditThemeComponent  implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
-    if (this.id == null || this.id == '0') {
-      this.missionThemeService.createMissionTheme(this.themeForm.value).subscribe(
-        (response) => console.log(response),
-        (error: any) => console.log(error),
-        () => console.log('Added mission theme!')
-      );
-      this.router.navigate(['/admin-home/mission-themes']);
+    if (this.themeForm.invalid) {
+      return;
     }
     else {
-      this.missionThemeService.updateMissionTheme(this.themeForm.value).subscribe(
-        (response: any) => console.log(response),
-        (error: any) => console.log(error),
-        () => console.log('Updated mission theme!')
-      );
-      this.router.navigate(['/admin-home/mission-themes']);
+      if (this.id == null || this.id == '0') {
+        this.missionThemeService.createMissionTheme(this.themeForm.value).subscribe(
+          (response) => console.log(response),
+          (error: any) => console.log(error),
+          () => console.log('Added mission theme!')
+        );
+      }
+      else {
+        this.missionThemeService.updateMissionTheme(this.themeForm.value).subscribe(
+          (response: any) => console.log(response),
+          (error: any) => console.log(error),
+          () => console.log('Updated mission theme!')
+        );
+      }
     }
+    this.router.navigate(['/admin-home/mission-themes']);
   }
   OnCancel() {
     this.router.navigateByUrl('/admin-home/mission-themes');
