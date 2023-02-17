@@ -4,7 +4,7 @@
       <div class="lg:col-span-9 col-span-12 px-0">
         <div class="w-full h-screen bg-transparent bg-cover bg-center bg-no-repeat"
           style="background-image: url('../assets/images/Grow-Trees-On-the-path-to-environment-sustainability-login.png');">
-          <div class="w-50 h-auto mx-auto pt-80 space-y-5">
+          <div class="absolute w-50 h-auto mx-auto lg:left-48 md:left:48 left-28 bottom-10 space-y-5">
             <div class="text-white py-3 grid text-2xl font-semibold">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </div>
@@ -26,37 +26,56 @@
                   <label>First Name</label>
                   <input type="text" name="firstname" formControlName="firstname"
                     class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
+                    <span class="text-danger" *ngIf="firstname?.invalid && (phone.touched || submitted)">Enter your firstname please!
+                    </span>
                 </div>
                 <div class="mt-2">
-                  <label>Lsat Name</label>
+                  <label>Last Name</label>
                   <input type="text" class="form-control" name="lastname" formControlName="lastname"
                     class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
+                    <span class="text-danger" *ngIf="lastname?.invalid && (phone.touched || submitted)">Enter your lastname please!</span>
                 </div>
                 <div class="mt-2">
                   <label>Phone Number</label>
                   <input type="text" class="form-control" name="phone" formControlName="phone"
                     class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
+                    <span class="text-danger" *ngIf="phone?.invalid && (phone.touched || submitted)">Enter your phone number please!</span>
                 </div>
                 <div class="mt-2">
                   <label>Email</label>
                   <input type="email" class="form-control" name="email" formControlName="email"
                     class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
-                </div>
+                    <span class="text-danger" *ngIf="email?.invalid && (email.touched || submitted)">
+                        Enter your email please!
+                    </span>
+                  </div>
                 <div class="mt-2">
                   <label>Password</label>
                   <input type="password" class="form-control" name="password" formControlName="password"
                     class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
+                    <span class="text-danger" *ngIf="password?.invalid && (password.touched || submitted)">
+                      Enter your password please!</span>
+                    <div *ngIf="password?.hasError('pattern')">
+                      Password must contain at least one number, one uppercase and a
+                      lowercase letter and at least 8 characters<br />Password cannot
+                      contain whitespace
+                    </div>
                 </div>
                 <div class="mt-2">
                   <label>Confirm Password</label>
                   <input type="password" class="form-control" name="confirmpassword" formControlName="confirmpassword"
                     class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
+                    <span class="text-danger" *ngIf="confirmpassword?.invalid && (confirmpassword.touched || submitted)">Confirm your password please!
+                    <div *ngIf="confirmpassword.errors?.confirmPasswordValidator">
+                      Passsword and Confirm Password didn't match.
+                    </div>
+                  </span>
                 </div>
               </div>
               <div>
                 <div class="mt-2 flex w-full items-center justify-center">
                   <button class="border-2 rounded-full border-orange-400 w-full h-10">
-                    Rejister
+                    Register
                   </button>
                 </div>
               </div>

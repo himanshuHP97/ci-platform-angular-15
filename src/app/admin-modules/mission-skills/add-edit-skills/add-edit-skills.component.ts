@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 
 import { Missionskills } from 'src/app/interface/missionskills';
 import { AdminService } from 'src/app/service/adminservices.service';
@@ -21,7 +22,8 @@ export class AddEditSkillsComponent implements OnInit, OnDestroy {
     private missionSkillService: AdminService,
     private router: Router,
     private formbuilder: FormBuilder,
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
+    private toastr: NgToastService
   ) { }
 
   ngOnInit(): void {
@@ -38,6 +40,12 @@ export class AddEditSkillsComponent implements OnInit, OnDestroy {
       skillname: ['', [Validators.required]],
       status: ['', [Validators.required]]
     });
+  }
+  get skillname() {
+    return this.skillForm.get('skillname') as FormControl;
+  }
+  get status() {
+    return this.skillForm.get('status') as FormControl;
   }
 
   onGetMissionSkill(id: number): void {
@@ -56,27 +64,29 @@ export class AddEditSkillsComponent implements OnInit, OnDestroy {
 
   onSubmit(): void {
     this.submitted = true;
-    if (this.skillForm.invalid) {
-      return;
-    }
-    else {
-      if (this.skillForm.value != null && this.id == null && this.skillForm.value != '') {
+    if (this.skillForm.valid) {
+      if (this.skillForm.value != null && this.id == '0') {
         this.missionSkillService.createMissionSkill(this.skillForm.value).subscribe(
           (response) => console.log(response),
           (error: any) => console.log(error),
-          () => console.log('Added mission skill!')
+          () => {
+            this.router.navigate(['/admin-home/mission-skills']);
+            this.toastr.success({ detail: 'Success', summary: 'skill added!', sticky: true, position: 'tr', duration: 1000 })
+          }
         );
       }
       else if (this.id != null || this.id != '0' && (this.skillForm.value != null && this.skillForm.value != '')) {
         this.missionSkillService.updateMissionSkill(this.skillForm.value).subscribe(
           (response: any) => console.log(response),
           (error: any) => console.log(error),
-          () => console.log('Updated mission skill!')
+          () => {
+            this.router.navigate(['/admin-home/mission-skills']);
+            this.toastr.success({ detail: 'Success', summary: 'skill updated!', sticky: true, position: 'tr', duration: 1000 })
+          }
         );
       } else {
-        alert('Form is invalid, please enter data!')
+        this.toastr.error({ detail: 'Error', summary: 'Form is not valid', sticky: true, position: 'tr', duration: 1000 })
       }
-      this.router.navigate(['/admin-home/mission-skills']);
     }
   }
   OnCancel() {

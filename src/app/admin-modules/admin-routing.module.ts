@@ -1,4 +1,3 @@
-import { AddEditThemeComponent } from './mission-theme/add-edit-theme/add-edit-theme.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './../service/auth.guard';
@@ -10,6 +9,7 @@ import { CmsPagesComponent } from './cms-pages/cms-pages.component';
 import { StoryComponent } from './story/story.component';
 import { MissionThemeComponent } from './mission-theme/mission-theme.component';
 import { AddEditSkillsComponent } from './mission-skills/add-edit-skills/add-edit-skills.component';
+import { AddEditThemeComponent } from './mission-theme/add-edit-theme/add-edit-theme.component';
 import { MissionSkillsComponent } from './mission-skills/mission-skills.component';
 import { MissionApplicationComponent } from './mission-application/mission-application.component';
 import { AddCmsPageComponent } from './cms-pages/add-cms-page/add-cms-page.component';

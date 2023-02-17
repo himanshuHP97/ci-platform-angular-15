@@ -13,22 +13,22 @@
                 Name
               </label>
               <input type="text" id="name" formControlName="skillname"
-                class="flex-1 block w-full  sm:text-sm border-2 border-gray-300" [ngClass]="{'is-invalid': skillForm.controls.skillname.errors && (skillForm.controls.skillname.touched || skillForm.controls.skillname.dirty)}" />
-              <span class="text-danger" *ngIf="skillForm.controls.skillname.errors?.required">
-                Name is required
-              </span>
+                class="flex-1 block w-full  sm:text-sm border-2 border-gray-300"/>
+                <span class="text-danger" *ngIf="skillname?.invalid && (skillname.touched || submitted)">
+                  Skill name cannot be blank!
+                </span>
             </div>
             <div>
               <label for="status" class="block text-sm font-medium text-gray-700">
                 Status
               </label>
               <select class="flex-1 block w-full sm:text-sm border-2 border-gray-300" id="status" name="status"
-                formControlName="status" [ngClass]="{'is-invalid': skillForm.controls.status.errors && (skillForm.controls.status.touched || skillForm.controls.status.dirty)}">
+                formControlName="status">
                 <option value="Active">Active</option>
                 <option value="InActive">InActive</option>
               </select>
-              <span class="text-danger" *ngIf="skillForm.controls.status.errors?.required">
-                Status is required!
+              <span class="text-danger" *ngIf="status?.invalid && (status.touched || submitted)">
+                Status cannot be blank!
               </span>
             </div>
           </div>
@@ -40,8 +40,7 @@
             Canecl
           </button>
           <button type="submit"
-            class="inline-flex justify-cente text-center px-4 py-1 border-2 border-orange-500 rounded-full bg-white  text-orange-500  text-base font-semibold leading-7 text-orange shadow-sm"
-            [disabled]="skillForm.invalid">
+            class="inline-flex justify-cente text-center px-4 py-1 border-2 border-orange-500 rounded-full bg-white  text-orange-500  text-base font-semibold leading-7 text-orange shadow-sm">
             Save
           </button>
         </div>

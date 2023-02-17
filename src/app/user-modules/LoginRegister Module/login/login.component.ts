@@ -51,14 +51,10 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/admin-home']);
             this.toastr.success({ detail: 'Success', summary: 'Login successful!', sticky: true, position: 'tr', duration: 1000 })
           }
-          else if (response.email == 'user@ciplatform.com') {
+          else{
             this.isLoading = false;
             this.router.navigate(['/user-home']);
             this.toastr.success({ detail: 'Success', summary: 'Login successful!', sticky: true, position: 'tr', duration: 1000 })
-          }
-          else {
-            this.toastr.error({ detail: 'Error', summary: 'User not exists!', sticky: true, position: 'tr', duration: 1000 })
-            this.isLoading = false;
           }
         },
         errorMessage => {

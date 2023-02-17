@@ -14,9 +14,9 @@
               </label>
               <input type="text" name="title" id="title" formControlName="title"
                 class="flex-1 block w-full  sm:text-sm border-2 border-gray-300" />
-              <!-- <span class="text-danger" *ngIf="title.invalid && (title.touched || formValid)">
-                  Requied
-                </span> -->
+                <span class="text-danger" *ngIf="title?.invalid && (title.touched || submitted)">
+                  Title cannot be blank!
+                </span>
             </div>
 
             <div class="col-s">
@@ -30,6 +30,9 @@
                     style="height: 400px" id="description" name="description">
                   </ngx-editor>
                 </div>
+                <span class="text-danger" *ngIf="description?.invalid && (description.touched || submitted)">
+                  Description cannot be blank!
+                </span>
               </div>
             </div>
             <div>
@@ -38,6 +41,9 @@
               </label>
               <input type="text" name="slug" id="slug" formControlName="slug"
                 class="flex-1 block w-full  sm:text-sm border-2 border-gray-300" />
+                <span class="text-danger" *ngIf="slug?.invalid && (slug.touched || submitted)">
+                  Slug cannot be blank!
+                </span>
             </div>
             <div>
               <label for="status" class="block text-sm font-medium text-gray-700">
@@ -48,6 +54,9 @@
                 <option value="Active">Active</option>
                 <option value="InActive">InActive</option>
               </select>
+              <span class="text-danger" *ngIf="status?.invalid && (status.touched || submitted)">
+                Status cannot be blank!
+              </span>
             </div>
           </div>
         </div>

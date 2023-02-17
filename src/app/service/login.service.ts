@@ -45,6 +45,13 @@ export class LoginService {
       );
   }
 
+  resetPassword(email: string) {
+    return this.http.post(this.apiUrl + 'accounts:resetPassword?' + this.apiKey,
+      {
+        email: email
+      })
+  }
+
   login(email: string, password: string) {
     return this.http.post<AuthResponseData>(this.apiUrl + 'accounts:signInWithPassword?' + this.apiKey,
       { email: email, password: password, returnSecureToken: true }).pipe(catchError(this.handleError),

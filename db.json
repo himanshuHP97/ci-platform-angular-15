@@ -13,6 +13,13 @@
       "description": "<p>Testing</p>",
       "slug": "Testing",
       "status": "Active"
+    },
+    {
+      "title": "Testing Add",
+      "description": "<p>Add CMS page</p>",
+      "slug": "Testing",
+      "status": "Active",
+      "id": 3
     }
   ],
   "users": [],
@@ -23,13 +30,7 @@
       "status": "Active"
     }
   ],
-  "missionthemes": [
-    {
-      "id": 1,
-      "themename": "Testing add-edit Theme",
-      "status": "Active"
-    }
-  ],
+  "missionthemes": [],
   "missions": [],
   "missionsapplications": [],
   "story": []

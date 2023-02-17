@@ -13,24 +13,22 @@
                 Name
               </label>
               <input type="text" id="name" formControlName="themename"
-                class="flex-1 block w-full  sm:text-sm border-2 border-gray-300"
-                [ngClass]="{'is-invalid': themeForm.controls.themename.errors && (themeForm.controls.themename.touched || themeForm.controls.themename.dirty)}" />
-              <span class="text-danger" *ngIf="themeForm.controls.themename.errors?.required">
-                Name is required!
-              </span>
+                class="flex-1 block w-full  sm:text-sm border-2 border-gray-300"/>
+                <span class="text-danger" *ngIf="themename?.invalid && (themename.touched || submitted)">
+                  Theme name cannot be blank!
+                </span>
             </div>
             <div>
               <label for="status" class="block text-sm font-medium text-gray-700">
                 Status
               </label>
               <select class="flex-1 block w-full sm:text-sm border-2 border-gray-300" id="status" name="status"
-                formControlName="status"
-                [ngClass]="{'is-invalid': themeForm.controls.status.errors && (themeForm.controls.status.touched || themeForm.controls.status.dirty)}">
+                formControlName="status">
                 <option value="Active">Active</option>
                 <option value="InActive">InActive</option>
               </select>
-              <span class="text-danger" *ngIf="themeForm.controls.status.errors?.required">
-                Status is required!
+              <span class="text-danger" *ngIf="status?.invalid && (status.touched || submitted)">
+                Status cannot be blank!
               </span>
             </div>
           </div>
