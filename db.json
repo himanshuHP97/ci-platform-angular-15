@@ -26,11 +26,17 @@
   "missionskills": [
     {
       "id": 1,
-      "skillname": "Testing add-edit skill",
+      "skillname": "Testing add edit skill",
       "status": "Active"
     }
   ],
-  "missionthemes": [],
+  "missionthemes": [
+    {
+      "id": 1,
+      "themename": "Testing add edit Theme",
+      "status": "Active"
+    }
+  ],
   "missions": [],
   "missionsapplications": [],
   "story": []

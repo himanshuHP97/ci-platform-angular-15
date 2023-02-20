@@ -65,7 +65,7 @@ export class AddEditSkillsComponent implements OnInit, OnDestroy {
   onSubmit(): void {
     this.submitted = true;
     if (this.skillForm.valid) {
-      if (this.skillForm.value != null && this.id == '0') {
+      if (this.skillForm.value != null && (this.id == null || this.id == '0')) {
         this.missionSkillService.createMissionSkill(this.skillForm.value).subscribe(
           (response) => console.log(response),
           (error: any) => console.log(error),
