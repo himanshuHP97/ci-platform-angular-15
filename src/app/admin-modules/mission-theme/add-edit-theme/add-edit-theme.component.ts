@@ -67,11 +67,11 @@ export class AddEditThemeComponent implements OnInit, OnDestroy {
     if (this.themeForm.valid) {
       if (this.themeForm.value != null && (this.id == null || this.id == '0')) {
         this.missionThemeService.createMissionTheme(this.themeForm.value).subscribe(
-          (response) => console.log(response),
-          (error: any) => console.log(error),
+          (response) => { console.log(response); },
+          (error: string) => { console.log(error); },
           () => {
             this.router.navigate(['/admin-home/mission-themes']);
-            this.toastr.success({ detail: 'Success', summary: 'Theme added!', sticky: true, position: 'tr', duration: 1000 })
+            this.toastr.success({ detail: 'Success', summary: 'Theme added!', sticky: true, position: 'tr', duration: 1000 });
           }
         );
       }

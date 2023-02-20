@@ -30,13 +30,7 @@
       "status": "Active"
     }
   ],
-  "missionthemes": [
-    {
-      "id": 1,
-      "themename": "Testing add edit Theme",
-      "status": "Active"
-    }
-  ],
+  "missionthemes": [],
   "missions": [],
   "missionsapplications": [],
   "story": []

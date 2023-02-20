@@ -1,3 +1,4 @@
+import { NgToastService } from 'ng-angular-popup';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Component, OnDestroy, OnInit } from '@angular/core';
@@ -17,7 +18,10 @@ export class MissionThemeComponent implements OnInit, OnDestroy {
   colorStatus = '';
   subscriber!: Subscription;
 
-  constructor(private missionThemeService: AdminService, private router: Router) { }
+  constructor(
+    private missionThemeService: AdminService,
+    private router: Router,
+    private toastr:NgToastService) { }
 
   ngOnInit(): void {
     this.onGetMissionSkills();
@@ -49,11 +53,11 @@ export class MissionThemeComponent implements OnInit, OnDestroy {
     this.subscriber = this.missionThemeService.deleteMissionTheme(id).subscribe(
       (response: Missiontheme) => {
         if (response.id != 0) {
-          window.alert('Theme deleted!');
+          this.toastr.success({ detail: 'Success', summary: 'Theme deleted!', sticky: true, position: 'tr', duration: 1000 });
           this.displayStyle = 'none';
           this.onGetMissionSkills();
         } else {
-          window.alert('An error occurred!');
+          this.toastr.success({ detail: 'Error', summary: 'An error occurred!', sticky: true, position: 'tr', duration: 1000 });
         }
       },
       (error: any) => console.log(error)

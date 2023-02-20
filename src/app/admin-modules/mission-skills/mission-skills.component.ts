@@ -1,3 +1,4 @@
+import { NgToastService } from 'ng-angular-popup';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -18,7 +19,8 @@ export class MissionSkillsComponent implements OnInit, OnDestroy {
   colorStatus = '';
   subscriber!: Subscription;
 
-  constructor(private missionSkillService: AdminService, private router: Router) {}
+  constructor(private missionSkillService: AdminService, private router: Router,
+    private toastr:NgToastService) {}
 
   ngOnInit(): void {
     this.onGetMissionSkills();
@@ -50,7 +52,7 @@ export class MissionSkillsComponent implements OnInit, OnDestroy {
     this.subscriber = this.missionSkillService.deleteMissionSkill(id).subscribe(
       (response: Missionskills) => {
         if (response.id != 0) {
-          window.alert('Skill deleted!');
+          this.toastr.success({ detail: 'Success', summary: 'Skill deleted!', sticky: true, position: 'tr', duration: 1000 });
           this.displayStyle = 'none';
           this.onGetMissionSkills();
         } else {

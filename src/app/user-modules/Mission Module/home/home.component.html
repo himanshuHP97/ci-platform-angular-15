@@ -38,12 +38,12 @@
         </select>
       </div>
     </div>
-    <div class="col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-1 gridview">
+    <div class="col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-1 gridview" (click)="onDisplayModeChange(1)">
       <div id="grid">
         <img src="../../../assets/images/grid.png" class="bg-slate-400 float-end cursor-pointer">
       </div>
     </div>
-    <div class="lg:col-span-1 md:col-span-1 sm:col-span-1 listview">
+    <div class="lg:col-span-1 md:col-span-1 sm:col-span-1 listview" (click)="onDisplayModeChange(2)">
       <div id="list">
         <img src="../../../assets/images/list.png" class="float-end cursor-pointer">
       </div>
@@ -53,7 +53,7 @@
 <section class="my-3">
   <ng-container *ngIf="(mission | paginate:{itemsPerPage:10,currentPage:1,totalItems:50}) as response">
     <!-- grid -->
-    <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+    <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5"   *ngIf="displayMode === 1">
       <div class="flex-row items-center w-full border-2 bg-white">
         <div class="relative">
           <div class="absolute  inline-flex right-0 rounded-full my-3 text-white bg-black opacity-60 px-3 py-2">
@@ -256,7 +256,7 @@
   </ng-container>
   <!-- List -->
   <ng-container *ngIf="(mission | paginate:{itemsPerPage:10,currentPage:1,totalItems:50}) as response">
-    <div class="p-10 w-full lg:max-w-full lg:flex">
+    <div class="p-10 w-full lg:max-w-full lg:flex" *ngIf="displayMode === 2">
         <div class="grid lg:grid-cols-12 border-2 bg-white">
           <div class="lg:col-span-3 md:col-span-3 col-span-12 px-0">
             <div class="relative">

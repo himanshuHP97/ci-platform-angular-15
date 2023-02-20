@@ -45,7 +45,7 @@ export class AdminService {
   //#endregion
 
   //#region Login
-  getLogin(user:User): Observable<User[]> {
+  getLogin(user: User): Observable<User[]> {
     return this.http.get<User[]>(`${this.apiurl}/users`);
   }
   //#endregion
@@ -104,7 +104,7 @@ export class AdminService {
   }
 
   createMissionTheme(theme: Missiontheme): Observable<Missiontheme> {
-    return this.http.post<Missiontheme>(`${this.apiurl}/missionthemes`, theme);
+    return this.http.post<Missiontheme>(`${this.apiurl}/missionthemes`, theme)
   }
 
   updateMissionTheme(theme: Missiontheme): Observable<Missiontheme> {

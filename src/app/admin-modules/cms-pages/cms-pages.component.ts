@@ -1,3 +1,4 @@
+import { NgToastService } from 'ng-angular-popup';
 import { Router } from '@angular/router';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/internal/Subscription';
@@ -19,7 +20,8 @@ export class CmsPagesComponent implements OnInit, OnDestroy {
   colorStatus = '';
   subscriber!: Subscription;
 
-  constructor(private cmspageService: AdminService, private router: Router) {}
+  constructor(private cmspageService: AdminService, private router: Router,
+    private toastr:NgToastService) {}
 
   ngOnInit(): void {
     this.onGetPages();
@@ -51,7 +53,7 @@ export class CmsPagesComponent implements OnInit, OnDestroy {
     this.subscriber = this.cmspageService.deletePage(id).subscribe(
       (response: Cmspage) => {
         if (response.id != 0) {
-          window.alert('Page deleted!');
+          this.toastr.success({ detail: 'Success', summary: 'cms page deleted!', sticky: true, position: 'tr', duration: 1000 });
           this.displayStyle = 'none';
           window.location.reload();
         } else {
