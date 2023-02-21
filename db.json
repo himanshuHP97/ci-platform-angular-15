@@ -2,35 +2,61 @@
   "cmspages": [
     {
       "id": 1,
-      "title": "Desktop publishing software like Aldus PageMaker including versions the leap into electronic typesetting.",
+      "title": "Cookies Page",
       "description": "<p>Testing done</p>",
       "slug": "done",
       "status": "Active"
     },
     {
       "id": 2,
-      "title": "Testing Add/Edit - Done",
+      "title": "Policy Page",
       "description": "<p>Testing</p>",
       "slug": "Testing",
       "status": "Active"
     },
     {
-      "title": "Testing Add",
+      "id": 3,
+      "title": "Terms and Condtitions",
       "description": "<p>Add CMS page</p>",
       "slug": "Testing",
-      "status": "Active",
-      "id": 3
+      "status": "Active"
     }
   ],
   "users": [],
   "missionskills": [
     {
       "id": 1,
-      "skillname": "Testing add edit skill",
+      "skillname": "Developer",
+      "status": "Active"
+    },
+    {
+      "id": 2,
+      "skillname": "Teaching",
+      "status": "Active"
+    },
+    {
+      "id": 3,
+      "skillname": "Manager",
       "status": "Active"
     }
   ],
-  "missionthemes": [],
+  "missionthemes": [
+    {
+      "id": 1,
+      "themename": "Helping people",
+      "status": "Active"
+    },
+    {
+      "id": 2,
+      "themename": "Planting Tree",
+      "status": "Active"
+    },
+    {
+      "id": 3,
+      "themename": "Donation for needy children ",
+      "status": "Active"
+    }
+  ],
   "missions": [],
   "missionsapplications": [],
   "story": []

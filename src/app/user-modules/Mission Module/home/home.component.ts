@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   mission:any[]=[];
-  displayMode!:number;
+  displayMode:number = 1;
 
   onDisplayModeChange(mode: number): void {
     this.displayMode = mode;

@@ -24,7 +24,7 @@ export class MissionThemeComponent implements OnInit, OnDestroy {
     private toastr:NgToastService) { }
 
   ngOnInit(): void {
-    this.onGetMissionSkills();
+    this.onGetMissionTheme();
   }
 
   showModal(id: any) {
@@ -35,7 +35,7 @@ export class MissionThemeComponent implements OnInit, OnDestroy {
     this.displayStyle = 'none';
   }
 
-  onGetMissionSkills(): void {
+  onGetMissionTheme(): void {
     this.subscriber = this.missionThemeService.getMissionThemes().subscribe(
       (response: Missiontheme[]) => {
         if (response.length != null) {
@@ -55,7 +55,7 @@ export class MissionThemeComponent implements OnInit, OnDestroy {
         if (response.id != 0) {
           this.toastr.success({ detail: 'Success', summary: 'Theme deleted!', sticky: true, position: 'tr', duration: 1000 });
           this.displayStyle = 'none';
-          this.onGetMissionSkills();
+          this.onGetMissionTheme();
         } else {
           this.toastr.success({ detail: 'Error', summary: 'An error occurred!', sticky: true, position: 'tr', duration: 1000 });
         }

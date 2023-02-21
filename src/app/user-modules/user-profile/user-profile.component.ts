@@ -1,3 +1,4 @@
+import { UserModel } from './../../interface/user';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent {
+  UserModel!:any;
 
 }

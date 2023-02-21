@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -16,6 +17,7 @@ import { PaginationComponent } from './pagination/pagination.component';
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule,
     SharedModule
   ],
   exports: [

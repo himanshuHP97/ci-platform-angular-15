@@ -5,9 +5,9 @@
   <div class="flex items-center justify-between mr-5">
     <div class="flex mt-3 xl:w-72">
       <div class="input-group relative flex flex-wrap items-stretch w-full mb-4">
-        <input type="search"
+        <input type="search"  [(ngModel)]="value" (ngModelChange)="onSerach()"
           class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:outline-none"
-          placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+          placeholder="Search" aria-label="Search" aria-describedby="button-addon2" >
       </div>
     </div>
     <div class="flex">
@@ -21,13 +21,13 @@
         id="datatable-search">
         <thead class="bg-gray-200">
           <tr>
-            <th>Title</th>
+            <th (click)="onSort('title')">Title<i class="ml-1 fa fa-sort"></i></th>
             <th>Status</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of cmspages">
+          <tr *ngFor="let item of cmspages | orderBy: key: orderby | paginate:{itemsPerPage:10,currentPage:pageIndex}">
             <td class="font-normal leading-normal text-sm">
               {{item.title}}
             </td>
@@ -49,7 +49,10 @@
         </tbody>
       </table>
     </div>
-    <div>
+    <div class="flex items-center justify-end">
+      <pagination-controls class="text-orange-500" (pageChange)="pageIndex = $event"></pagination-controls>
+    </div>
+    <!-- <div>
       <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm float-end" aria-label="Pagination">
         <a href="#"
           class="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-black hover:bg-gray-50 focus:z-20">
@@ -74,7 +77,7 @@
           </svg>
         </a>
       </nav>
-    </div>
+    </div> -->
   </div>
 </div>
 

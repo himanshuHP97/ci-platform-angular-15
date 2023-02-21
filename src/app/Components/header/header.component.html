@@ -9,7 +9,8 @@
             Policy
             <span class="caret"></span></a>
           <ul class="dropdown-menu" [ngClass]="{'show':open.isOpen}">
-            <li><a class="dropdown-item" routerLink="/user-home/policy-page" routerLinkActive="active">Policy Page</a>
+            <li>
+              <a class="dropdown-item" *ngFor="let item of cmspages">{{item.title}}</a>
             </li>
           </ul>
         </li>

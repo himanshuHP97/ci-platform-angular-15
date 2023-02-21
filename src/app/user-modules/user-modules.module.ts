@@ -1,6 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { SharedModule } from './../Shared/shared.module';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ComponentsModule } from '../Components/components.module';
 
 import { HomeComponent } from './Mission Module/home/home.component';
@@ -14,8 +14,6 @@ import { StoryDetailsComponent } from './story-page/story-details/story-details.
 import { StoryShareComponent } from './story-page/story-share/story-share.component';
 import { VolunteerPageComponent } from './volunteer-page/volunteer-page.component';
 import { VolunteeringMissionComponent } from './Mission Module/volunteering-mission/volunteering-mission.component';
-
-
 
 @NgModule({
   declarations: [
@@ -34,7 +32,6 @@ import { VolunteeringMissionComponent } from './Mission Module/volunteering-miss
     SharedModule,
     ComponentsModule,
     UserRoutingModule,
-    NgxPaginationModule,
   ]
 })
 export class UserModulesModule { }

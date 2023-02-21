@@ -19,9 +19,13 @@ export class CmsPagesComponent implements OnInit, OnDestroy {
   displayStyle = 'none';
   colorStatus = '';
   subscriber!: Subscription;
+  value!: string;
+  key!: string;
+  orderby: boolean = false;
+  pageIndex = 1;
 
   constructor(private cmspageService: AdminService, private router: Router,
-    private toastr:NgToastService) {}
+    private toastr: NgToastService) { }
 
   ngOnInit(): void {
     this.onGetPages();
@@ -33,6 +37,23 @@ export class CmsPagesComponent implements OnInit, OnDestroy {
   }
   hideModal() {
     this.displayStyle = 'none';
+  }
+
+  onSerach() {
+    if (this.value == "") {
+      this.cmspageService.getPages().subscribe((response) => {
+        this.cmspages = response;
+      })
+    }
+    else {
+      this.cmspages = this.cmspages.filter(response => {
+        return response.title.toLocaleLowerCase().match(this.value.toLocaleLowerCase());
+      })
+    }
+  }
+  onSort(key: string) {
+    this.key = key;
+    this.orderby = !this.orderby;
   }
 
   onGetPages(): void {
