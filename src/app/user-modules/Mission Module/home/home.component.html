@@ -257,7 +257,7 @@
   <!-- List -->
   <ng-container *ngIf="(mission | paginate:{itemsPerPage:10,currentPage:1,totalItems:50}) as response">
     <div class="p-10 w-full lg:max-w-full lg:flex" *ngIf="displayMode === 2">
-        <div class="grid lg:grid-cols-12 border-2 bg-white">
+        <div class="grid lg:grid-cols-12 lg:border-2 md:border-2 bg-white">
           <div class="lg:col-span-3 md:col-span-3 col-span-12 px-0">
             <div class="relative">
             <span class="absolute right-0 rounded-full inline-flex my-3 px-3 py-1 text-white bg-black opacity-80 "><img src="../../../../assets/images/pin1.png" alt="No">&nbsp;Country</span>
