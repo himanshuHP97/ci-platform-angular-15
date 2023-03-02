@@ -7,16 +7,33 @@ export interface Mission {
   city: string;
   organisationName: string;
   organisationDetail: string;
-  startdate: Date;
-  enddate: Date;
-  documents: [];
+  startDate: Date;
+  endDate: Date;
+  documents: Document[];
   Availability: boolean;
   videoUrl: string;
+  missionType: string;
+  totalSeats: number;
+  Deadline: string;
+  theme: string;
+  skills: string[];
+  images: Image[];
+  rating: Rating;
 }
 
-// Type (Time/Goal): string;
-// Total   Seats (If mission type is "Time"): string;
-// registration deadline (If mission type is "Time"): string;
-// Theme (Single Select): string;
-// Skills (Multi-selection): string;
-// Images (Give Ability to mark any one uploaded image as "Default"): string;
+export interface Image {
+  image: string;
+}
+
+export interface Document {
+  name: string;
+  extension: string;
+}
+
+export interface Rating {
+  id: number;
+  userId: number;
+  missionId: number;
+  rating: number;
+}
+

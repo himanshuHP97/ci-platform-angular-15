@@ -6,13 +6,15 @@ export interface Story {
   title: string;
   missionTitle: string;
   description: string;
-  photos: [];
+  images: string[];
   videoUrl:string;
   status: StoryStatus;
   isActive:boolean;
+  date: string;
 }
 
 enum StoryStatus {
+  view,
   puslish,
   decline,
   delete,

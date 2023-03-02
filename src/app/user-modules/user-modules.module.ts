@@ -14,7 +14,12 @@ import { StoryDetailsComponent } from './story-page/story-details/story-details.
 import { StoryShareComponent } from './story-page/story-share/story-share.component';
 import { VolunteerPageComponent } from './volunteer-page/volunteer-page.component';
 import { VolunteeringMissionComponent } from './Mission Module/volunteering-mission/volunteering-mission.component';
-
+import { NgSelectModule } from '@ng-select/ng-select';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { PopupModule } from '@progress/kendo-angular-popup';
+import { ListBoxModule } from "@progress/kendo-angular-listbox";
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { CommentComponent } from './Mission Module/volunteering-mission/comment/comment.component';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -25,13 +30,19 @@ import { VolunteeringMissionComponent } from './Mission Module/volunteering-miss
     StoryDetailsComponent,
     StoryShareComponent,
     VolunteerPageComponent,
-    VolunteeringMissionComponent
+    VolunteeringMissionComponent,
+    CommentComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
+    NgSelectModule,
     ComponentsModule,
     UserRoutingModule,
+    ButtonsModule,
+    PopupModule,
+    ListBoxModule,
+    CarouselModule
   ]
 })
 export class UserModulesModule { }

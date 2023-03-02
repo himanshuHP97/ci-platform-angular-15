@@ -1,39 +1,118 @@
 <nav class="flex items-center justify-between w-full h-full">
   <div class="flex justify-between items-center w-full px-4">
-      <ul class="flex py-2 px-4">
-        <li class="nav-item px-2">
-          <a class="nav-link text-black" routerLink="/user-home/story-page" routerLinkActive="active">Stories</a>
-        </li>
-        <li class="nav-item dropdown px-2" appDropDown #open="appDropDown" #hide>
-          <a class="nav-link dropdown-toggle" role="button">
-            Policy
-            <span class="caret"></span></a>
-          <ul class="dropdown-menu" [ngClass]="{'show':open.isOpen}">
-            <li>
-              <a class="dropdown-item" *ngFor="let item of cmspages">{{item.title}}</a>
-            </li>
+    <ul class="flex py-2 px-4">
+      <li class="nav-item dropdown px-2" appDropDown #explore="appDropDown">
+        <a class="nav-link dropdown-toggle" role="button">
+          Explore <span class="caret"></span></a>
+        <ul class="dropdown-menu" [ngClass]="{'show':explore.isOpen}">
+          <li>
+            <a class="dropdown-item">Top Themes</a>
+            <a class="dropdown-item">Most Ranked</a>
+            <a class="dropdown-item">Top Favourite</a>
+            <a class="dropdown-item" routerLink="/user-home">Random</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item px-2">
+        <a class="nav-link text-black" routerLink="/user-home/story-page" routerLinkActive="active">Stories</a>
+      </li>
+      <li class="nav-item dropdown px-2" appDropDown #policy="appDropDown">
+        <a class="nav-link dropdown-toggle" role="button">
+          Policy <span class="caret"></span></a>
+        <ul class="dropdown-menu" [ngClass]="{'show':policy.isOpen}">
+          <li>
+            <a class="dropdown-item" *ngFor="let item of cmspages">{{item.title}}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="flex py-2">
+      <div class="notification">
+        <li class="nav-item dropdown" (click)="clickNotify()" (click)="$event.stopPropagation()">
+          <a class="nav-link" role="button"><i class="fa fa-bell"></i><sup
+              class="text-orange-500 font-bold">10</sup></a>
+          <div class="absolute right-0 z-10 mt-2 w-[400px] origin-top-righ dropdown-menu" [ngClass]="{'show':notity}">
+            <div class="flex justify-between items-center w-full px-4 mb-2">
+        <li class="nav-item dropdown" (click)="notifySetting()" (click)="$event.stopPropagation()">
+          <button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="fa fa-cog"></i>
+          </button>
+          <ul class="mt-2 w-[400px] dropdown-menu" [ngClass]="{'show':notityOption}"
+            [ngStyle]="{'display':displayStyle}">
+            <form class="flex-row w-full" (click)="$event.stopPropagation()">
+              <div class="border-b">
+                <h2 class="flex justify-center items-center text-lg font-semibold">Notification Setting</h2>
+                <h2 class="flex bg-gray-300 items-center text-lg px-4">Get a notification for</h2>
+              </div>
+              <div class="border-b px-2">
+                <div class="flex justify-between items-center">
+                  <label for="">Recommended Mission</label>
+                  <input type="checkbox" class="cursor-pointer">
+                </div>
+                <div class="flex justify-between items-center">
+                  <label for="">Volunteering Hours</label>
+                  <input type="checkbox" class="cursor-pointer">
+                </div>
+                <div class="flex justify-between items-center">
+                  <label for="">Volunteering Goal</label>
+                  <input type="checkbox" class="cursor-pointer">
+                </div>
+                <div class="flex justify-between items-center">
+                  <label for="">My Comment</label>
+                  <input type="checkbox" class="cursor-pointer">
+                </div>
+                <div class="flex justify-between items-center">
+                  <label for="">My Stories</label>
+                  <input type="checkbox" class="cursor-pointer">
+                </div>
+                <div class="flex justify-between items-center">
+                  <label for="">New Mission</label>
+                  <input type="checkbox" class="cursor-pointer">
+                </div>
+                <div class="flex justify-between items-center">
+                  <label for="">New Message</label>
+                  <input type="checkbox" class="cursor-pointer">
+                </div>
+              </div>
+              <div class="flex justify-center w-full items-center border-b-2 py-2">
+                <button type="submit"
+                  class="flex border-2 border-orange-400 rounded-full py-2 px-4 text-sm font-medium text-orange-600 ">Save</button>
+                <button type="button"
+                  class="flex border-2 rounded-full py-2 px-4 mx-2 text-sm font-medium text-gray-600 border-gray-400"
+                  (click)="onCloseSetting()">Canecl</button>
+              </div>
+            </form>
           </ul>
         </li>
-      </ul>
-      <ul class="flex py-2">
-        <img class="img mx-3 rounded-full w-6 h-6" src="../../../assets/images/user-img.png" alt="" >
-        <li class="dropdown" appDropDown #show="appDropDown">
-          <a class="dropdown-toggle" data-toggle="dropdown" role="button">User
-            Profile <span class="caret"></span></a>
-          <ul class="dropdown-menu my-3 -ml-20 rounded-none" [ngClass]="{'show':show.isOpen}">
-            <li class="text-black"><a class="dropdown-item hover:text-orange-400 bg-white"
-            routerLink="/user-home/user-profile" routerLinkActive="active:text-orange-400">My Profile</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li class="text-black"><a class="dropdown-item  hover:text-orange-400 bg-white"
-              routerLink="/user-home/volunteer-page" routerLinkActive="active:text-orange-400">Volunteering Timesheet</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li class="text-black"><a class="dropdown-item hover:text-orange-400 bg-white" (click)="onLogout()">Logout</a></li>
-          </ul>
-        </li>
-      </ul>
+        <li class="nav-item px-2 font-semibold">Notification</li>
+        <li class="nav-item px-2 font-semibold">Clear all</li>
+      </div>
+      <div class="flex justify-between items-center w-full px-4 border-t-2 border-b-2 p-2 mx-auto bg-gray-200">
+        <li class="cursor-pointer"><i class="fa fa-plus-circle fa-lg"></i></li>
+        <li class="cursor-pointer">Under Process</li>
+        <li class="cursor-pointer"><i class="fa fa-circle fa-sm text-orange-400"></i></li>
+      </div>
+  </div>
+  </li>
+  </div>
+  <img class="img mx-3 rounded-full w-6 h-6" src="../../../assets/images/user-img.png" alt="" >
+  <li class="dropdown" appDropDown #show="appDropDown">
+    <a class="dropdown-toggle" data-toggle="dropdown" role="button">User
+      Profile <span class="caret"></span></a>
+      <ul class="dropdown-menu my-3 -ml-20 rounded-none" [ngClass]="{'show':show.isOpen}">
+      <li class="text-black"><a class="dropdown-item hover:text-orange-400 bg-white"
+          routerLink="/user-home/user-profile" routerLinkActive="active:text-orange-400">My Profile</a></li>
+      <li>
+        <hr class="dropdown-divider">
+      </li>
+      <li class="text-black"><a class="dropdown-item  hover:text-orange-400 bg-white"
+          routerLink="/user-home/volunteer-page" routerLinkActive="active:text-orange-400">Volunteering Timesheet</a></li>
+      <li>
+        <hr class="dropdown-divider">
+      </li>
+      <li class="text-black"><a class="dropdown-item hover:text-orange-400 bg-white" (click)="onLogout()">Logout</a></li>
+    </ul>
+  </li>
+  </ul>
   </div>
 </nav>
