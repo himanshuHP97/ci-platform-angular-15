@@ -1,8 +1,8 @@
 <nav class="flex items-center justify-between w-full h-full">
   <div class="flex justify-between items-center w-full px-4">
     <ul class="flex py-2 px-4">
-      <li class="nav-item dropdown px-2" appDropDown #explore="appDropDown">
-        <a class="nav-link dropdown-toggle" role="button">
+      <li class="nav-item dropdown px-2">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" appDropDown #explore="appDropDown">
           Explore <span class="caret"></span></a>
         <ul class="dropdown-menu" [ngClass]="{'show':explore.isOpen}">
           <li>
@@ -16,8 +16,8 @@
       <li class="nav-item px-2">
         <a class="nav-link text-black" routerLink="/user-home/story-page" routerLinkActive="active">Stories</a>
       </li>
-      <li class="nav-item dropdown px-2" appDropDown #policy="appDropDown">
-        <a class="nav-link dropdown-toggle" role="button">
+      <li class="nav-item dropdown px-2">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" appDropDown #policy="appDropDown">
           Policy <span class="caret"></span></a>
         <ul class="dropdown-menu" [ngClass]="{'show':policy.isOpen}">
           <li>
@@ -28,17 +28,18 @@
     </ul>
     <ul class="flex py-2">
       <div class="notification">
-        <li class="nav-item dropdown" (click)="clickNotify()" (click)="$event.stopPropagation()">
-          <a class="nav-link" role="button"><i class="fa fa-bell"></i><sup
-              class="text-orange-500 font-bold">10</sup></a>
-          <div class="absolute right-0 z-10 mt-2 w-[400px] origin-top-righ dropdown-menu" [ngClass]="{'show':notity}">
+        <li class="nav-item dropdown" (click)="$event.stopPropagation()">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" appDropDown #notify="appDropDown"><i
+              class="fa fa-bell"></i><sup class="text-orange-500 font-bold">10</sup></a>
+          <div class="absolute right-0 z-10 mt-2 w-[400px] origin-top-righ dropdown-menu"
+            [ngClass]="{'show':notify.isOpen}">
             <div class="flex justify-between items-center w-full px-4 mb-2">
-        <li class="nav-item dropdown" (click)="notifySetting()" (click)="$event.stopPropagation()">
-          <button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <li class="nav-item dropdown" (click)="$event.stopPropagation()">
+          <button type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" appDropDown
+            #notifySetting="appDropDown">
             <i class="fa fa-cog"></i>
           </button>
-          <ul class="mt-2 w-[400px] dropdown-menu" [ngClass]="{'show':notityOption}"
-            [ngStyle]="{'display':displayStyle}">
+          <ul class="mt-2 w-[400px] dropdown-menu" [ngClass]="{'show':notifySetting.isOpen}">
             <form class="flex-row w-full" (click)="$event.stopPropagation()">
               <div class="border-b">
                 <h2 class="flex justify-center items-center text-lg font-semibold">Notification Setting</h2>
@@ -87,30 +88,35 @@
         <li class="nav-item px-2 font-semibold">Notification</li>
         <li class="nav-item px-2 font-semibold">Clear all</li>
       </div>
-      <div class="flex justify-between items-center w-full px-4 border-t-2 border-b-2 p-2 mx-auto bg-gray-200">
+      <div class="flex justify-between items-center w-full px-4 border-t-2 border-b-2 p-2 mx-auto bg-gray-200"
+        (click)="ReadNotification()" [ngStyle]="{'background':unreadStyle }">
         <li class="cursor-pointer"><i class="fa fa-plus-circle fa-lg"></i></li>
         <li class="cursor-pointer">Under Process</li>
-        <li class="cursor-pointer"><i class="fa fa-circle fa-sm text-orange-400"></i></li>
+        <li class="cursor-pointer" *ngIf="readStyle === true ? true:false">
+          <i class="fa fa-circle fa-sm text-orange-400"></i>
+        </li>
       </div>
   </div>
   </li>
   </div>
-  <img class="img mx-3 rounded-full w-6 h-6" src="../../../assets/images/user-img.png" alt="" >
-  <li class="dropdown" appDropDown #show="appDropDown">
-    <a class="dropdown-toggle" data-toggle="dropdown" role="button">User
+  <img class="img mx-3 rounded-full w-6 h-6" src="{{userImage}}" alt="">
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" role="button" appDropDown #profile="appDropDown">User
       Profile <span class="caret"></span></a>
-      <ul class="dropdown-menu my-3 -ml-20 rounded-none" [ngClass]="{'show':show.isOpen}">
+    <ul class="dropdown-menu rounded-none my-3 -ml-20" [ngClass]="{'show':profile.isOpen}">
       <li class="text-black"><a class="dropdown-item hover:text-orange-400 bg-white"
           routerLink="/user-home/user-profile" routerLinkActive="active:text-orange-400">My Profile</a></li>
       <li>
         <hr class="dropdown-divider">
       </li>
       <li class="text-black"><a class="dropdown-item  hover:text-orange-400 bg-white"
-          routerLink="/user-home/volunteer-page" routerLinkActive="active:text-orange-400">Volunteering Timesheet</a></li>
+          routerLink="/user-home/volunteer-page" routerLinkActive="active:text-orange-400">Volunteering Timesheet</a>
+      </li>
       <li>
         <hr class="dropdown-divider">
       </li>
-      <li class="text-black"><a class="dropdown-item hover:text-orange-400 bg-white" (click)="onLogout()">Logout</a></li>
+      <li class="text-black"><a class="dropdown-item hover:text-orange-400 bg-white" (click)="onLogout()">Logout</a>
+      </li>
     </ul>
   </li>
   </ul>

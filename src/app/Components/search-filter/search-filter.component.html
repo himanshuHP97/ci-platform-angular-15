@@ -14,7 +14,7 @@
     <div class="input-group-btn border-r">
       <select class="form-select border-0" (change)="OnEventChange($event)">
         <option>Country</option>
-        <!-- <option *ngFor="let item of countyList" value="{{item.id}}">{{item.name}}</option> -->
+        <option *ngFor="let item of country">{{item.name}}</option>
       </select>
     </div>
   </div>
@@ -22,6 +22,7 @@
     <div class="input-group-btn border-r">
       <select class="form-select border-0" (change)="OnEventChange($event)">
         <option>City</option>
+        <option *ngFor="let item of city">{{item.name}}</option>
       </select>
     </div>
   </div>
@@ -29,7 +30,7 @@
     <div class="input-group-btn border-r">
       <select class="form-select border-0" (change)="OnEventChange($event)">
         <option>Themes</option>
-        <option *ngFor="let item of themes">{{item.themename}}</option>
+        <option *ngFor="let item of theme">{{item.themename}}</option>
       </select>
     </div>
   </div>
@@ -37,7 +38,7 @@
     <div class="input-group-btn border-r">
       <select class="form-select border-0" (change)="OnEventChange($event)">
         <option>Skills</option>
-        <option *ngFor="let item of skills">{{item.skillname}}</option>
+        <option *ngFor="let item of skill">{{item.skillname}}</option>
       </select>
     </div>
   </div>

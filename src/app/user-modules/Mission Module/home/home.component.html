@@ -23,7 +23,7 @@
 <div class="container w-full h-full">
   <div class="grid w-full h-full md:grid-cols-12 lg:grid-cols-12 items-center">
     <div class="col-span-12 lg:col-span-8 md:col-span-6 sm:col-span-5">
-      <h4>Explore Mission 1</h4>
+      <h4>Explore Mission - {{count}}</h4>
     </div>
     <div class="col-span-12 lg:col-span-2 md:col-span-2 sm:col-span-3">
       <div class="input-group-btn">
@@ -51,34 +51,33 @@
   </div>
 </div>
 <section class="my-3">
-  <ng-container *ngIf="(mission | paginate:{itemsPerPage:10,currentPage:1,totalItems:50}) as response">
+  <ng-container *ngIf="(mission | paginate:{itemsPerPage:10,currentPage:1,totalItems:count}) as response">
     <!-- grid -->
-    <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5"   *ngIf="displayMode === 1">
-      <div class="flex-row items-center w-full border-2 bg-white">
+    <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5"
+      *ngIf="displayMode === 1">
+      <div class="flex-row items-center w-full border-2 bg-white cursor-pointer" *ngFor="let item of response">
         <div class="relative">
-          <div class="absolute  inline-flex right-0 rounded-full my-3 text-white bg-black opacity-60 px-3 py-2">
-            <i class="fa fa-map-marker">&nbsp;Toronto</i>
+          <div class="absolute  inline-flex right-0 rounded-full my-3 text-white bg-black opacity-60 p-2">
+            <i class="fa fa-map-marker">&nbsp;{{item.country}}</i>
           </div>
-          <div class="absolute inline-flex right-0 rounded-full text-white bg-black opacity-60  py-3 my-20 px-3">
+          <div class="absolute inline-flex right-0 rounded-full text-white bg-black opacity-60 my-20 p-2">
             <i class="fa fa-heart-o"></i>
           </div>
-          <div class="absolute inline-flex my-36 px-3 right-0 rounded-full text-white bg-black opacity-60  py-3">
+          <div class="absolute inline-flex my-36 right-0 rounded-full text-white bg-black opacity-60 p-2">
             <i class="fa fa-user-plus"></i>
           </div>
-          <img class="w-full border-0"
-            src="../../../assets/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="..." />
-          <div class="relative -top-4 bg-white rounded-full w-50 mx-auto text-center">Environment</div>
+          <img class="w-full border-0" src="../../../../assets/images/{{item.images[0].image}}" alt="..." />
+          <div class="relative -top-4 bg-white rounded-full w-50 mx-auto text-center">{{item.theme}}</div>
         </div>
         <div class="px-6 py-3">
-          <div class="font-bold text-xl mb-2 text-justify">Grow Trees – On the path to environment sustainability</div>
+          <div class="font-bold text-xl mb-2 text-justify">{{item.title}}</div>
           <p class="text-gray-700 text-sm text-justify">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis
-            eaque, exercitationem praesentium nihil.
+            {{item.shortDescription}}
           </p>
         </div>
         <div class="cardbody">
           <div class="flex justify-between items-center px-6 py-3">
-            <span>Tree Canada</span>
+            <span>{{item.organisationName}}</span>
             <span class="star-rating text-lg text-yellow-300">
               <i class="fa fa-star" id="star1"></i>
               <i class="fa fa-star" id="star2"></i>
@@ -90,7 +89,7 @@
           <div class="border-t border-b">
             <div class="flex items-center justify-center w-full -mt-3">
               <div class="border rounded-full px-2 bg-white">
-                From 10/01/2019 until 25/02/2019
+                From {{item.startDate}} until {{item.endDate}}
               </div>
             </div>
             <div class="flex items-center justify-between text-gray-400 my-2">
@@ -99,10 +98,7 @@
                   <img src="../../../assets/images/Seats-left.png" class="w-7 h-7">
                 </span>
                 <div class="text-gray-600">
-                  10
-                  <div class="text-style-1">
-                    Seats left
-                  </div>
+                  {{item.totalSeats}}<div class="text-style-1">Seats left </div>
                 </div>
               </div>
               <div class="inline-flex">
@@ -110,229 +106,109 @@
                   <img src="../../../assets/images/deadline.png" class="w-8 h-8">
                 </span>
                 <div class="text-gray-600">
-                  09/01/2019
-                  <div class="text-style-1">
-                    Deadline
-                  </div>
+                  {{item.deadline}}<div class="text-style-1"> Deadline </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="flex justify-center mx-auto my-3 items-center w-52 border-2 rounded-full border-orange-500">
-            <button class="text-base py-2 text-orange-500 font-normal">Apply <i class="fa fa-arrow-right"></i></button>
+          <div class="flex justify-center mx-auto my-3 items-center w-52 border-2 rounded-full border-orange-500" *ngIf="item.isApplied == false;">
+            <button class="text-base py-2 text-orange-500 font-normal" type="submit" > Apply<i class="fa fa-arrow-right" ></i></button>
           </div>
-        </div>
-      </div>
-      <div class="flex-row items-center w-full border-2 bg-white">
-        <div class="relative">
-          <div class="absolute  inline-flex right-0 rounded-full my-3 text-white bg-black opacity-60 px-3 py-2">
-            <i class="fa fa-map-marker">&nbsp;Toronto</i>
-          </div>
-          <div class="absolute inline-flex right-0 rounded-full text-white bg-black opacity-60  py-3 my-20 px-3">
-            <i class="fa fa-heart-o"></i>
-          </div>
-          <div class="absolute inline-flex my-36 px-3 right-0 rounded-full text-white bg-black opacity-60  py-3">
-            <i class="fa fa-user-plus"></i>
-          </div>
-          <img class="w-full border-0"
-            src="../../../assets/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="..." />
-          <div class="relative -top-4 bg-white rounded-full w-50 mx-auto text-center">Environment</div>
-        </div>
-        <div class="px-6 py-3">
-          <div class="font-bold text-xl mb-2 text-justify">Grow Trees – On the path to environment sustainability</div>
-          <p class="text-gray-700 text-sm text-justify">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis
-            eaque, exercitationem praesentium nihil.
-          </p>
-        </div>
-        <div class="cardbody">
-          <div class="flex justify-between items-center px-6 py-3">
-            <span>Tree Canada</span>
-            <span class="star-rating text-lg text-yellow-300">
-              <i class="fa fa-star" id="star1"></i>
-              <i class="fa fa-star" id="star2"></i>
-              <i class="fa fa-star" id="star3"></i>
-              <i class="fa fa-star" id="star4"></i>
-              <i class="fa fa-star" id="star5"></i>
-            </span>
-          </div>
-          <div class="border-t border-b">
-            <div class="flex items-center justify-center w-full -mt-3">
-              <div class="border rounded-full px-2 bg-white">
-                From 10/01/2019 until 25/02/2019
-              </div>
-            </div>
-            <div class="flex items-center justify-between text-gray-400 my-2">
-              <div class="inline-flex">
-                <span>
-                  <img src="../../../assets/images/Seats-left.png" class="w-7 h-7">
-                </span>
-                <div class="text-gray-600">10<div class="text-style-1">Seats left</div></div>
-              </div>
-              <div class="inline-flex">
-                <span>
-                  <img src="../../../assets/images/deadline.png" class="w-8 h-8">
-                </span>
-                <div class="text-gray-600">09/01/2019<div class="text-style-1">Deadline</div></div>
-              </div>
-            </div>
-          </div>
-          <div class="flex justify-center mx-auto my-3 items-center w-52 border-2 rounded-full border-orange-500">
-            <button class="text-base py-2 text-orange-500 font-normal" routerLink="/user-home/volunteering-mission"
-              routerLinkActive="active">View Details <i class="fa fa-arrow-right"></i></button>
-          </div>
-        </div>
-      </div>
-      <div class="flex-row items-center w-full border-2 bg-white">
-        <div class="relative">
-          <div class="absolute  inline-flex right-0 rounded-full my-3 text-white bg-black opacity-60 px-3 py-2">
-            <i class="fa fa-map-marker">&nbsp;Toronto</i>
-          </div>
-          <div class="absolute inline-flex right-0 rounded-full text-white bg-black opacity-60  py-3 my-20 px-3">
-            <i class="fa fa-heart-o"></i>
-          </div>
-          <div class="absolute inline-flex my-36 px-3 right-0 rounded-full text-white bg-black opacity-60  py-3">
-            <i class="fa fa-user-plus"></i>
-          </div>
-          <img class="w-full border-0"
-            src="../../../assets/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="..." />
-          <div class="relative -top-4 bg-white rounded-full w-50 mx-auto text-center">Environment</div>
-        </div>
-        <div class="px-6 py-3">
-          <div class="font-bold text-xl mb-2 text-justify">Grow Trees – On the path to environment sustainability</div>
-          <p class="text-gray-700 text-sm text-justify">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis
-            eaque, exercitationem praesentium nihil.
-          </p>
-        </div>
-        <div class="cardbody">
-          <div class="flex justify-between items-center px-6 py-3">
-            <span>Tree Canada</span>
-            <span class="star-rating text-lg text-yellow-300">
-              <i class="fa fa-star" id="star1"></i>
-              <i class="fa fa-star" id="star2"></i>
-              <i class="fa fa-star" id="star3"></i>
-              <i class="fa fa-star" id="star4"></i>
-              <i class="fa fa-star" id="star5"></i>
-            </span>
-          </div>
-          <div class="border-t border-b">
-            <div class="flex items-center justify-center w-full -mt-3">
-              <div class="border rounded-full px-2 bg-white">
-                From 10/01/2019 until 25/02/2019
-              </div>
-            </div>
-            <div class="flex items-center justify-between text-gray-400 my-2">
-              <div class="inline-flex">
-                <span>
-                  <img src="../../../assets/images/Seats-left.png" class="w-7 h-7">
-                </span>
-                <div class="text-gray-600">
-                  10
-                  <div class="text-style-1">
-                    Seats left
-                  </div>
-                </div>
-              </div>
-              <div class="inline-flex">
-                <span>
-                  <img src="../../../assets/images/deadline.png" class="w-8 h-8">
-                </span>
-                <div class="text-gray-600">
-                  09/01/2019
-                  <div class="text-style-1">
-                    Deadline
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="flex justify-center mx-auto my-3 items-center w-52 border-2 rounded-full border-orange-500">
-            <button class="text-base py-2 text-orange-500 font-normal">Apply <i class="fa fa-arrow-right"></i></button>
+          <div class="flex justify-center mx-auto my-3 items-center w-52 border-2 rounded-full border-orange-500"  *ngIf="item.isApplied == true">
+            <a routerLink="/user-home/volunteering-mission/{{item.id}}" routerLinkActive="active" class="cursor-pointer block" >
+              <button class="text-base py-2 text-orange-500 font-normal" type="submit" > View Details<i class="fa fa-arrow-right"></i></button></a>
           </div>
         </div>
       </div>
     </div>
-  </ng-container>
-  <!-- List -->
-  <ng-container *ngIf="(mission | paginate:{itemsPerPage:10,currentPage:1,totalItems:50}) as response">
-    <div class="p-10 w-full lg:max-w-full lg:flex" *ngIf="displayMode === 2">
-        <div class="grid lg:grid-cols-12 lg:border-2 md:border-2 bg-white">
-          <div class="lg:col-span-3 md:col-span-3 col-span-12 px-0">
-            <div class="relative">
-            <span class="absolute right-0 rounded-full inline-flex my-3 px-3 py-1 text-white bg-black opacity-80 "><img src="../../../../assets/images/pin1.png" alt="No">&nbsp;Country</span>
-            <span class="absolute inline-flex right-0 rounded-full my-16 px-3 py-3  text-white bg-black opacity-80"><img src="../../../../assets/images/heart1.png" alt="No"></span>
-            <span class="absolute inline-flex right-0 rounded-full my-32 px-3 py-3 text-white bg-black opacity-80"><img src="../../../../assets/images/add1.png" alt="No"></span>
-            <span class="absolute bg-green-600 text-white px-3 py-1 rounded-r-full">Applied</span>
-            <img class="border-0 w-full"
-              src="../../../assets/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="..." />
-            <div class="relative -top-4 bg-white rounded-full w-50 mx-auto text-center">Environment</div>
+    <!-- List -->
+    <div class="p-10 w-full lg:max-w-full" *ngIf="displayMode === 2">
+      <div class="grid xl:grid-cols-12 lg:grid-cols-12 md:grid-cols-12 lg:border-2 md:border-2 my-2 bg-white"
+        *ngFor="let item of response">
+        <div class="lg:col-span-3 md:col-span-3 col-span-12 px-0">
+          <div class="relative">
+            <span class="absolute right-0 rounded-full inline-flex my-2 p-1 text-white bg-black opacity-80 "><img
+                src="../../../../assets/images/pin1.png" alt="No">&nbsp;{{item.country}}</span>
+            <span class="absolute inline-flex right-0 rounded-full my-14 p-1  text-white bg-black opacity-80"><img
+                src="../../../../assets/images/heart1.png" alt="No"></span>
+            <span class="absolute inline-flex right-0 rounded-full my-28 p-1 text-white bg-black opacity-80"><img
+                src="../../../../assets/images/add1.png" alt="No"></span>
+            <span class="absolute bg-green-600 text-white px-3 py-1 rounded-r-full" *ngIf="item.isApplied == true">
+              Applied
+            </span>
+            <img class="border-0 w-full" src="../../../../assets/images/{{item.images[0].image}}" alt="..." />
+            <div class="relative -top-4 bg-white rounded-full w-50 mx-auto text-center">{{item.theme}}</div>
           </div>
-          </div>
-          <div class="lg:col-span-9 md:col-span-9 col-span-12 px-0">
-            <div class="grid grid-cols-12 px-2 py-2">
-              <div class="col-span-2">
-                <img src="../../../../assets/images/pin1.png" alt="NoImage">&nbsp;City
-              </div>
-              <div class="col-span-2">
-                <img src="../../../../assets/images/web.png" alt="NoImage">&nbsp;<span>Theme</span>
-              </div>
-              <div class="col-span-2">
-                <img src="../../../../assets/images/organization.png" alt="NoImage">&nbsp;<span>organization</span>
-              </div>
-              <div class="col-span-6">
-                <div class="flex justify-end mx-3">
-                  <span class="star-rating text-lg text-yellow-300">
-                    <i class="fa fa-star" id="star1"></i>
-                    <i class="fa fa-star" id="star2"></i>
-                    <i class="fa fa-star" id="star3"></i>
-                    <i class="fa fa-star" id="star4"></i>
-                    <i class="fa fa-star" id="star5"></i>
-                  </span>
-                </div>
+        </div>
+        <div class="lg:col-span-9 md:col-span-9 col-span-12 px-0">
+          <div class="grid grid-cols-12 px-2 py-2">
+            <div class="col-span-2">
+              <img src="../../../../assets/images/pin1.png" alt="NoImage">&nbsp;{{item.city}}
+            </div>
+            <div class="col-span-2">
+              <img src="../../../../assets/images/web.png" alt="NoImage">&nbsp;<span>{{item.theme}}</span>
+            </div>
+            <div class="col-span-2">
+              <img src="../../../../assets/images/organization.png"
+                alt="NoImage">&nbsp;<span>{{item.organisationName}}</span>
+            </div>
+            <div class="col-span-6">
+              <div class="flex justify-end mx-3">
+                <span class="star-rating text-lg text-yellow-300">
+                  <i class="fa fa-star" id="star1"></i>
+                  <i class="fa fa-star" id="star2"></i>
+                  <i class="fa fa-star" id="star3"></i>
+                  <i class="fa fa-star" id="star4"></i>
+                  <i class="fa fa-star" id="star5"></i>
+                </span>
               </div>
             </div>
-            <div class="flex-row flex-wrap px-3 py-2">
-              <div class="font-bold text-xl mb-2 text-justify">Grow Trees – On the path to environment sustainability
-              </div>
-              <p class="text-gray-700 text-sm text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et
-                perferendis
-                eaque, exercitationem praesentium nihil.
-              </p>
-              <div class="flex items-center justify-between my-3">
-                <div class="inline-flex">
-                  <span>
-                    <img src="../../../assets/images/Seats-left.png" class="w-7 h-7">
-                  </span>
-                  <div class="text-gray-600">10<div class="text-style-1">Seats left</div></div>
-                </div>
-                <div class="inline-flex">
-                  <span>
-                    <img src="../../../../assets/images/deadline.png">
-                  <div class="text-gray-600">16/02/2023<div class="text-style-1">Registration Deadline</div></div>
-                  </span>
-                </div>
-                <div class="inline-flex">
-                  <span>
-                    <img src="../../../../assets/images/calender.png">
-                    <div class="text-gray-600">From<div class="text-style-1">10/01/2019 until 25/02/2019</div></div>
-                  </span>
-                </div>
-                <div class="inline-flex">
-                  <span>
-                    <img src="../../../../assets/images/settings.png">
-                    <div class="text-gray-600">Skills<div class="text-style-1">Teaching Skills</div></div>
-                  </span>
-                </div>
-                <div class="flex justify-center my-3 items-center w-52 border-2 rounded-full border-orange-500">
-                  <button class="text-base py-2 text-orange-500 font-normal" routerLink="/user-home/volunteering-mission"
-                    routerLinkActive="active">View Details <i class="fa fa-arrow-right"></i></button>
+          </div>
+          <div class="flex-row flex-wrap px-3 py-2">
+            <div class="font-bold text-xl mb-2 text-justify">{{item.title}}</div>
+            <p class="text-gray-700 text-sm text-justify">{{item.shortDescription}}</p>
+            <div class="flex items-center justify-between my-3">
+              <div class="inline-flex">
+                <span>
+                  <img src="../../../assets/images/Seats-left.png" class="w-7 h-7">
+                </span>
+                <div class="text-gray-600">{{item.totalSeats}}<div class="text-style-1">Seats left</div>
                 </div>
               </div>
+              <div class="inline-flex">
+                <span>
+                  <img src="../../../../assets/images/deadline.png">
+                  <div class="text-gray-600">{{item.deadline}}<div class="text-style-1">Registration Deadline</div>
+                  </div>
+                </span>
+              </div>
+              <div class="inline-flex">
+                <span>
+                  <img src="../../../../assets/images/calender.png">
+                  <div class="text-gray-600">From<div class="text-style-1">{{item.startDate}} until {{item.endDate}}
+                    </div>
+                  </div>
+                </span>
+              </div>
+              <div class="inline-flex">
+                <span>
+                  <img src="../../../../assets/images/settings.png">
+                  <div class="text-gray-600">{{item.skills}}</div>
+                </span>
+              </div>
+            </div>
+            <div class="flex justify-center my-3 items-center w-52 border-2 rounded-full border-orange-500" *ngIf="item.isApplied == false">
+              <button class="text-base py-2 text-orange-500 font-normal">Apply <i class="fa fa-arrow-right"></i></button>
+            </div>
+            <div class="flex justify-center my-3 items-center w-52 border-2 rounded-full border-orange-500" *ngIf="item.isApplied == true">
+              <button class="text-base py-2 text-orange-500 font-normal" routerLink="/user-home/volunteering-mission/{{item.id}}" routerLinkActive="active">View Details <i class="fa fa-arrow-right"></i></button>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="col-span-12 text-center" *ngIf="response.length === 0">
+      <p class="text-secondary " style="font-size:20px"><b>No mission Found</b></p>
     </div>
   </ng-container>
 </section>

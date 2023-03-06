@@ -168,13 +168,12 @@
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Add Skill</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal">
-          <i class="fa fa-close"></i>
         </button>
       </div>
       <div class="modal-body">
         <div class="flex flex-wrap -mx-3 mb-6">
           <div class="flex flex-row w-full h-auto md:w-45 px-3 mb-6 md:mb-0">
-            <kendo-listbox class="flex w-full md:w-1/2 px-3 mb-6 md:mb-0" #skill kendoListBoxDataBinding [data]="data"
+            <kendo-listbox class="flex w-full md:w-1/2 px-3 mb-6 md:mb-0" #skill kendoListBoxDataBinding [data]="data" [toolbar]="toolbarSettings"
               (actionClick)="OnSubmitSkill($event)" [connectedWith]="selectSkill">
             </kendo-listbox>
             <kendo-listbox class=" flex w-full md:w-1/2 px-3 mb-6 md:mb-0" #selectSkill [data]="data1" [toolbar]="false"
@@ -188,8 +187,8 @@
           <button type="button"
             class="flex border-2 rounded-full py-2 px-4 mx-2 text-sm font-medium text-gray-600 border-gray-400"
             data-bs-dismiss="modal">Close</button>
-          <!-- <button type="submit"
-            class="flex border-2 border-orange-400 rounded-full py-2 px-4 text-sm font-medium text-orange-600" (click)="SaveSkill()">Save</button> -->
+          <button type="submit"
+            class="flex border-2 border-orange-400 rounded-full py-2 px-4 text-sm font-medium text-orange-600" (click)="SaveSkills()">Save</button>
         </div>
       </div>
     </div>

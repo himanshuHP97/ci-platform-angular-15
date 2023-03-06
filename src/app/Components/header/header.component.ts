@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { NgToastService } from 'ng-angular-popup';
 import { Cmspage } from 'src/app/interface/cmspage';
+import { User } from 'src/app/interface/user';
 import { AdminService } from 'src/app/service/adminservices.service';
 
 @Component({
@@ -15,14 +16,15 @@ export class HeaderComponent implements OnInit {
   notity: boolean = false;
   notityOption: boolean = false;
   displayStyle = 'none';
-
+  unreadStyle = '';
+  readStyle  = true;
+  userImage = '../../../assets/images/user-img.png';
   constructor(private service: AdminService, private router: Router,
     private toastr: NgToastService,private route: ActivatedRoute,) { }
 
   ngOnInit(): void {
     this.onGetPages();
   }
-
   clickNotify() {
     this.notity = !this.notity;
     this.displayStyle = 'none';
@@ -33,6 +35,10 @@ export class HeaderComponent implements OnInit {
   }
   onCloseSetting(){
     this.displayStyle = 'none';
+  }
+  ReadNotification(){
+    this.unreadStyle = 'white';
+    this.readStyle  = false;
   }
   onGetPages(): void {
     this.service.getPages().subscribe(

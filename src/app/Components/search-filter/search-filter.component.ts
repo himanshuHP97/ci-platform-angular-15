@@ -1,5 +1,5 @@
 import { Mission } from './../../interface/mission';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { BehaviorSubject } from 'rxjs';
@@ -15,26 +15,32 @@ import { AdminService } from 'src/app/service/adminservices.service';
 })
 export class SearchFilterComponent implements OnInit {
   searchList: BehaviorSubject<any> = new BehaviorSubject<any>('');
-  mission: Mission[] = [];
-  skills: Missionskills[] = [];
-  themes: Missiontheme[] = [];
+  skill: Missionskills[] = [];
+  theme: Missiontheme[] = [];
+  mission:Mission[] = [];
+  country!: [ {'name':'India'},{'name':'USA'}]
+  city!: [{'name':'Bangalore'},{'name':'Chennai'},{'name':'New York'},{'name':'Chicago'}];
   value!: string;
+  searchText = '';
+
 
   constructor(private service: AdminService, private router: Router,
     private toastr: NgToastService) { }
   ngOnInit(): void {
-
+    this.country;
+    this.city;
     this.onGetMissionSkills();
     this.onGetMissionThemes();
   }
 
   OnSerach() {
-    if(this.value == "") {
+    if (this.value == "") {
       this.service.getMissions().subscribe((response) => {
+        console.log(response);
         this.mission = response;
       })
     }
-    else{
+    else {
       this.mission = this.mission.filter(response => {
         return response.title.toLocaleLowerCase().match(this.value.toLocaleLowerCase());
       })
@@ -47,7 +53,7 @@ export class SearchFilterComponent implements OnInit {
     this.service.getMissionSkills().subscribe(
       (response: Missionskills[]) => {
         if (response.length != null) {
-          this.skills = response;
+          this.skill = response;
         } else {
           console.log(response);
         }
@@ -61,7 +67,7 @@ export class SearchFilterComponent implements OnInit {
     this.service.getMissionThemes().subscribe(
       (response: Missiontheme[]) => {
         if (response.length != null) {
-          this.themes = response;
+          this.theme = response;
         } else {
           console.log(response);
         }

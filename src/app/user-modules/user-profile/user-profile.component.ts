@@ -3,7 +3,7 @@ import { User, UserModel } from './../../interface/user';
 import { Component, QueryList, ViewChildren } from '@angular/core';
 import { AdminService } from 'src/app/service/adminservices.service';
 import { Router } from '@angular/router';
-import { ActionName, ListBoxComponent } from '@progress/kendo-angular-listbox';
+import { ActionName, ListBoxComponent, ListBoxToolbarConfig } from '@progress/kendo-angular-listbox';
 
 @Component({
   selector: 'app-user-profile',
@@ -23,6 +23,11 @@ export class UserProfileComponent {
     'Research', 'Administrative Support', 'Customer Service', 'Data Entry', 'Executive Admin', 'Office Management', 'Office Reception', 'Program Management', 'Transactions', 'Agronomy',
     'Animal Care / Handling', 'Animal Therapy', 'Aquarium Maintenance', 'Botany', 'Environmental Education', 'Environmental Policy', 'Farming'];
   public data1: Missionskills[] = [];
+  public toolbarSettings: ListBoxToolbarConfig = {
+    position: 'right',
+    tools: ['transferTo', 'transferFrom'],
+  };
+
   constructor(private service: AdminService, private router: Router) { }
 
   ngOnInit(): void {
@@ -45,10 +50,12 @@ export class UserProfileComponent {
       this.selectedSkill = data1;
     }
   }
-  showselected(){
+  showselected() {
     this.selectedSkill;
-   }
+  }
+  SaveSkills() {
 
+  }
   onGetSkills(): void {
     this.service.getMissionSkills().subscribe(
       (response: Missionskills[]) => {

@@ -2,13 +2,13 @@
   <div class="grid h-75 md:grid-cols-12 lg:grid-cols-12 mb-2">
     <div class="lg:col-span-6 md:col-span-6 col-span-12 px-0">
       <div class="flex items-center justify-center my-12 mx-6">
-        <img class="flex" src="../../../../assets/images/image2.png">
+        <img class="flex" src="../../../../../../assets/images/{{mission.images[0].image}}">
       </div>
-      <div class="flex border-2 mx-6">
+      <div class="flex border-2 mx-6 w-auto">
         <carousel [itemsPerSlide]="itemsPerSlide" [singleSlideOffset]="singleSlideOffset" [noWrap]="!noWrap"
           [interval]="0" [startFromIndex]="1">
-          <slide *ngFor="let slide of slides; let index=index">
-            <img [src]="slide.image" alt="image slide" style="display: block; width: 100%;">
+          <slide *ngFor="let item of mission.images; let index=index">
+            <img src="../../../../../../assets/images/{{item.image}}" alt="image slide" class="block w-full">
           </slide>
         </carousel>
       </div>
@@ -16,17 +16,14 @@
     <div class="lg:col-span-6 md:col-span-6 col-span-12 px-0 bg-white">
       <div class="flex w-full items-center justify-start mt-20">
         <div class="px-6 py-3 mb-2 w-full">
-          <div class="font-normal text-2xl mb-2 text-justify">Grow Trees – On the path to environment sustainability
-          </div>
-          <p class="text-gray-700 text-sm text-justify">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
-          </p>
+          <div class="font-normal text-2xl mb-2 text-justify">{{mission.title}}</div>
+          <p class="text-gray-700 text-sm text-justify">{{mission.shortDescription}}</p>
         </div>
       </div>
       <div class="border-t border-b">
         <div class="flex items-center justify-center w-full -mt-3">
           <div class="border rounded-full px-2 bg-white">
-            From 10/01/2019 until 25/02/2019
+            From {{mission.startDate}} until {{mission.endDate}}
           </div>
         </div>
         <div class="flex items-center justify-between text-gray-400 my-2">
@@ -35,7 +32,7 @@
               <img src="../../../assets/images/Seats-left.png" class="w-7 h-7">
             </span>
             <div class="text-gray-600">
-              10
+              {{mission.totalSeats}}
               <div class="text-style-1">
                 Seats left
               </div>
@@ -46,7 +43,7 @@
               <img src="../../../assets/images/deadline.png" class="w-8 h-8">
             </span>
             <div class="text-gray-600">
-              09/01/2019
+              {{mission.deadline}}
               <div class="text-style-1">
                 Deadline
               </div>
@@ -90,7 +87,8 @@
                     City
                   </h3>
                 </div>
-                <p class="mt-1 text-sm text-gray-700">London</p>
+                <p class="mt-1 text-sm text-gray-700">{{mission.city}}
+                </p>
               </div>
             </div>
 
@@ -102,7 +100,7 @@
                     Theme
                   </h3>
                 </div>
-                <p class="mt-1 text-sm text-gray-700">Environment</p>
+                <p class="mt-1 text-sm text-gray-700">{{mission.theme}}</p>
               </div>
             </div>
 
@@ -126,7 +124,7 @@
                     Organization
                   </h3>
                 </div>
-                <p class="mt-1 text-sm text-gray-700">CSE Network</p>
+                <p class="mt-1 text-sm text-gray-700">{{mission.organisationName}}</p>
               </div>
             </div>
           </div>
@@ -140,100 +138,97 @@
       </div>
     </div>
   </div>
-  <div class="grid h-full md:grid-cols-12 lg:grid-cols-12 mb-2">
+  <div class="grid h-full w-full md:grid-cols-12 lg:grid-cols-12 mb-2">
     <div class="col-span-7 px-0">
-      <ul class="nav nav-tabs flex flex-col md:flex-row flex-wrap list-none border-b pl-0 mb-4" id="tabs-tab"
-        role="tablist">
-        <li class="nav-item border-b border-black" role="presentation">
-          <a href="#tabs-mission"
-            class="block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-transparent hover:bg-gray-100 focus:border-transparent"
-            id="tabs-mission-tab" data-bs-toggle="pill" data-bs-target="#tabs-mission" role="tab">
-            Mission
-          </a>
-        </li>
-        <li class="nav-item hover:border-b hover:border-black" role="presentation">
-          <a href="#tabs-organization"
-            class="block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-transparent hover:bg-gray-100 focus:border-transparent"
-            id="tabs-organization-tab" data-bs-toggle="pill" data-bs-target="#tabs-organization"
-            role="tab">Organization</a>
-        </li>
-        <li class="nav-item hover:border-b hover:border-black" role="presentation">
-          <a href="#tabs-comments"
-            class="block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-transparent hover:bg-gray-100 focus:border-transparent"
-            id="tabs-comments-tab" data-bs-toggle="pill" data-bs-target="#tabs-comments" role="tab">Comments</a>
-        </li>
-      </ul>
-      <div class="tab-content my-3" id="tabs-tabContent">
-        <div class="tab-pane fade text-justify" id="tabs-mission" role="tabpanel">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat.
-          <br><br>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur
-          sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          <br><br><br>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </div>
-        <div class="tab-pane fade" id="tabs-organization" role="tabpanel">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat.
-          <br><br>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur
-          sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          <br><br><br>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          <br><br>
-          We use these technologies for a number of purposes, such as:
-          <br><br>
-          <ul class="py-1">
-            <li class="py-1">But I must explain to you how all this mistaken idea of denouncing pleasure andpraising
-              pain.
-            </li>
-            <li class="py-1">
-              At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentiumvoluptatum deleniti
-              atque
-              excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia
-              animi.
-            </li>
-            <li class="py-1">
-              On the other hand, we denounce with righteous
-              indignation and dislike men who are so beguiled and demoralized
-              But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.
-            </li>
-            <li class="py-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-              ut
-              labore et dolore.
-            </li>
-          </ul>
-          <span class="py-5">
+      <mat-tab-group dynamicHeight class="nav nav-tabs flex flex-col md:flex-row flex-wrap list-none border-b pl-0 mb-4">
+        <mat-tab label="Mission" class="">
+          <div class="p-2">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea
+            commodo consequat.
+            <br><br>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur
+            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <br><br><br>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore
             magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
             commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-            est laborum.
-          </span>
-        </div>
-          <app-comment class="tab-pane fade" id="tabs-comments" role="tabpanel">
-          </app-comment>
-      </div>
+            consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+            laborum.
+          </div>
+        </mat-tab>
+        <mat-tab label="Organization" class="">
+          <div class="p-2">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo
+            consequat.
+            <br><br>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur
+            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <br><br><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo
+            consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+            laborum.
+            <br><br>
+            We use these technologies for a number of purposes, such as:
+            <br><br>
+            <ul class="py-1">
+              <li class="py-1">But I must explain to you how all this mistaken idea of denouncing pleasure andpraising
+                pain.
+              </li>
+              <li class="py-1">
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentiumvoluptatum
+                deleniti
+                atque
+                excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt
+                mollitia
+                animi.
+              </li>
+              <li class="py-1">
+                On the other hand, we denounce with righteous
+                indignation and dislike men who are so beguiled and demoralized
+                But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.
+              </li>
+              <li class="py-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt
+                ut
+                labore et dolore.
+              </li>
+            </ul>
+            <span class="py-5">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore
+              magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+              commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+              pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+              id
+              est laborum.
+            </span>
+          </div>
+        </mat-tab>
+        <mat-tab label="Comments">
+          <app-comment></app-comment>
+        </mat-tab>
+      </mat-tab-group>
     </div>
     <div class="col-span-1 px-0"></div>
-    <div class="col-span-4 w-full h-72 mt-3 border">
+    <div class="col-span-4 w-full h-72 mt-2 border overflow-x-scroll">
       <span class="flex w-80 mx-auto border-b text-xl my-3">Recent Volunteer</span>
-      <div class="flex flex-wrap  items-center justify-center">
+      <div class="flex flex-wrap items-center justify-center">
         <span class="flex-row mx-2"><img class="flex mx-auto h-12 w-12 rounded-full ring-2 ring-white"
             src="../../../../assets/images/volunteer1.png">
           <p>Andrew Johnson</p>

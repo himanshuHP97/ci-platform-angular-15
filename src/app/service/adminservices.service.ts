@@ -11,6 +11,7 @@ import { Missionskills } from '../interface/missionskills';
 import { Missiontheme } from '../interface/missiontheme';
 import { Missionapplication } from '../interface/missionapplication';
 import { environment } from 'src/environments/environment';
+import { withCache } from '@ngneat/cashew';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +25,9 @@ export class AdminService {
 
   //#region CMS Page API Endpoints
   getPages(): Observable<Cmspage[]> {
-    return this.http.get<Cmspage[]>(`${this.apiurl}/cmspages`);
+    return this.http.get<Cmspage[]>(`${this.apiurl}/cmspages`,{
+      context: withCache()
+    });
   }
 
   getPage(id: number): Observable<Cmspage> {

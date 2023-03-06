@@ -13,6 +13,7 @@ export interface Story {
   date: string;
 }
 
+
 enum StoryStatus {
   view,
   puslish,

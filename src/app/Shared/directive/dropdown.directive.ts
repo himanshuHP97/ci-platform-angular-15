@@ -1,4 +1,4 @@
-import { Directive, HostListener, HostBinding, ElementRef, EventEmitter, Output } from '@angular/core';
+import { Directive, HostListener, HostBinding, ElementRef, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appDropDown]',
@@ -6,10 +6,19 @@ import { Directive, HostListener, HostBinding, ElementRef, EventEmitter, Output 
 })
 
 export class DropdownDirective {
-  @HostBinding('class.open') isOpen = false;
+  private wasInside = false;
 
+  @HostBinding("class.show") isOpen = false;
 
-  @HostListener('click') toggleOpen() {
+  @HostListener("click") toggleOpen() {
     this.isOpen = !this.isOpen;
+    this.wasInside = true;
+  }
+
+  @HostListener("document:click") clickout() {
+    if (!this.wasInside) {
+      this.isOpen = false;
+    }
+    this.wasInside = false;
   }
 }

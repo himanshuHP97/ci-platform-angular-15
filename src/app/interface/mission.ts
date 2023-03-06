@@ -12,13 +12,14 @@ export interface Mission {
   documents: Document[];
   Availability: boolean;
   videoUrl: string;
-  missionType: string;
+  type: string;
   totalSeats: number;
-  Deadline: string;
+  deadline: string;
   theme: string;
   skills: string[];
   images: Image[];
   rating: Rating;
+  isApplied:boolean;
 }
 
 export interface Image {

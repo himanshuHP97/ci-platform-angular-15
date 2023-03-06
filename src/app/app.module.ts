@@ -9,14 +9,14 @@ import { NgToastModule } from 'ng-angular-popup';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { StoreModule } from '@ngrx/store';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
+import { HttpCacheInterceptorModule } from '@ngneat/cashew';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     RouterModule,
     HttpClientModule,
+    HttpCacheInterceptorModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     NgToastModule,

@@ -8,12 +8,14 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgxEditorModule } from 'ngx-editor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchPipe } from './Pipes/search.pipe';
 
 @NgModule({
   declarations: [
     DropdownDirective,
     LoadingSpinnerComponent,
-    TestingComponent
+    TestingComponent,
+    SearchPipe
   ],
   imports: [
     CommonModule,
@@ -34,6 +36,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     Ng2OrderModule,
 
     DropdownDirective,
+    SearchPipe,
     LoadingSpinnerComponent,
     TestingComponent
   ],

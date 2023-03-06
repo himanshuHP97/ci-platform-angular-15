@@ -10,6 +10,7 @@ import { UserRoutingModule } from './user-routing.module';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { StoryPageComponent } from './story-page/story-page.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ToolBarModule } from '@progress/kendo-angular-toolbar';
 import { StoryDetailsComponent } from './story-page/story-details/story-details.component';
 import { StoryShareComponent } from './story-page/story-share/story-share.component';
 import { VolunteerPageComponent } from './volunteer-page/volunteer-page.component';
@@ -19,6 +20,8 @@ import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { PopupModule } from '@progress/kendo-angular-popup';
 import { ListBoxModule } from "@progress/kendo-angular-listbox";
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { EditorModule } from '@progress/kendo-angular-editor';
+import {MatTabsModule} from '@angular/material/tabs';
 import { CommentComponent } from './Mission Module/volunteering-mission/comment/comment.component';
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { CommentComponent } from './Mission Module/volunteering-mission/comment/
   imports: [
     CommonModule,
     SharedModule,
+    MatTabsModule,
     NgSelectModule,
+    EditorModule,
+    ToolBarModule,
     ComponentsModule,
     UserRoutingModule,
     ButtonsModule,

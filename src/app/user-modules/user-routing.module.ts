@@ -17,6 +17,7 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'volunteering-mission', component: VolunteeringMissionComponent },
+      { path: 'volunteering-mission/:id', component: VolunteeringMissionComponent },
       { path: 'story-page', component: StoryPageComponent },
       { path: 'story-detail', component: StoryDetailsComponent },
       { path: 'story-share', component: StoryShareComponent },
