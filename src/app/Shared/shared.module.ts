@@ -15,7 +15,7 @@ import { SearchPipe } from './Pipes/search.pipe';
     DropdownDirective,
     LoadingSpinnerComponent,
     TestingComponent,
-    SearchPipe
+    SearchPipe,
   ],
   imports: [
     CommonModule,

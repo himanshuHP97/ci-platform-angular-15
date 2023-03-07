@@ -4,16 +4,15 @@
       {{headerDate | date:'full'}}
     </span>
   </div>
-  <div class="lg:col-span-3 col-span-12 mr-3">
-    <div class="flex float-end">
-      <img class="flex img mr-2 rounded-circle" src="../../../assets/images/user-img.png" alt="" width="20px"
+  <div class="lg:col-span-3 col-span-12 mx-3">
+    <div class="float-end">
+      <ul class="inline-flex">
+        <img class="img mr-2 rounded-circle" src="../../../assets/images/user-img.png" alt="" width="20px"
         height="20px">
-      <ul class="flex">
         <li class="nav-item dropdown" appDropDown #show="appDropDown" #hide>
           <a class="dropdown-toggle" data-toggle="dropdown" role="button">User
             Profile <span class="caret"></span></a>
-          <ul class="dropdown-menu" [ngClass]="{'show':show.isOpen}">
-            <li><a class="dropdown-item">User Profile</a></li>
+          <ul class="dropdown-menu" [ngClass]="{'show':show.isOpen}" style="margin-left: -71px;">
             <li><a class="dropdown-item" (click)="onLogout()">Logout</a></li>
           </ul>
         </li>

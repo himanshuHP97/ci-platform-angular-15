@@ -48,6 +48,7 @@
     "core-js": "^3.29.0",
     "font-awesome": "^4.7.0",
     "json-server": "^0.17.2",
+    "moment": "^2.29.4",
     "nativescript": "^8.4.0",
     "ng-angular-popup": "^0.2.0",
     "ng-http-caching": "^15.0.2",

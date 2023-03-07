@@ -1,3 +1,4 @@
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -7,6 +8,7 @@ import { User } from '../interface/user';
 import { Story } from '../interface/story';
 import { Cmspage } from '../interface/cmspage';
 import { Mission } from '../interface/mission';
+import { Comment } from './../interface/comment';
 import { Missionskills } from '../interface/missionskills';
 import { Missiontheme } from '../interface/missiontheme';
 import { Missionapplication } from '../interface/missionapplication';
@@ -25,7 +27,7 @@ export class AdminService {
 
   //#region CMS Page API Endpoints
   getPages(): Observable<Cmspage[]> {
-    return this.http.get<Cmspage[]>(`${this.apiurl}/cmspages`,{
+    return this.http.get<Cmspage[]>(`${this.apiurl}/cmspages`, {
       context: withCache()
     });
   }
@@ -138,6 +140,20 @@ export class AdminService {
 
   deleteMission(id: number): Observable<Mission> {
     return this.http.delete<Mission>(`${this.apiurl}/missions/${id}`);
+  }
+  //#endregion
+
+  //#region Comment API Endpoints
+  getComments(missionId: number): Observable<Comment[]> {
+    return this.http.get<Comment[]>(`${this.apiurl}/comments/${missionId}`);
+  }
+
+  createComment(comment: Comment): Observable<Comment> {
+    return this.http.post<Comment>(`${this.apiurl}/comments`, Comment);
+  }
+
+  deleteComment(id: number): Observable<Mission> {
+    return this.http.delete<Mission>(`${this.apiurl}/comments/${id}`);
   }
   //#endregion
 

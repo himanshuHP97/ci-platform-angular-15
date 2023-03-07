@@ -1,5 +1,5 @@
 <nav class="flex items-center justify-between w-full h-full">
-  <div class="flex justify-between items-center w-full px-4">
+  <div class="flex lg:justify-between md:justify-between justify-start items-center w-full">
     <ul class="flex py-2 px-4">
       <li class="nav-item dropdown px-2">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" appDropDown #explore="appDropDown">
@@ -103,7 +103,7 @@
   <li class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" role="button" appDropDown #profile="appDropDown">User
       Profile <span class="caret"></span></a>
-    <ul class="dropdown-menu rounded-none my-3 -ml-20" [ngClass]="{'show':profile.isOpen}">
+    <ul class="dropdown-menu rounded-none my-3" [ngClass]="{'show':profile.isOpen}" style="margin-left: -120px;">
       <li class="text-black"><a class="dropdown-item hover:text-orange-400 bg-white"
           routerLink="/user-home/user-profile" routerLinkActive="active:text-orange-400">My Profile</a></li>
       <li>

@@ -22,7 +22,7 @@ import { ListBoxModule } from "@progress/kendo-angular-listbox";
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { EditorModule } from '@progress/kendo-angular-editor';
 import {MatTabsModule} from '@angular/material/tabs';
-import { CommentComponent } from './Mission Module/volunteering-mission/comment/comment.component';
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -34,7 +34,6 @@ import { CommentComponent } from './Mission Module/volunteering-mission/comment/
     StoryShareComponent,
     VolunteerPageComponent,
     VolunteeringMissionComponent,
-    CommentComponent
   ],
   imports: [
     CommonModule,

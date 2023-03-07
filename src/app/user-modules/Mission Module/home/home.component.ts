@@ -10,6 +10,7 @@ import { Missionskills } from 'src/app/interface/missionskills';
 })
 export class HomeComponent implements OnInit {
   mission: Mission[] = [];
+  page: number = 1;
   displayMode: number = 1;
   constructor(private service: AdminService) { }
   count!:number;
