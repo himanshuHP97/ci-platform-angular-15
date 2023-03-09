@@ -1,3 +1,4 @@
+import { AdminService } from 'src/app/service/adminservices.service';
 import { Mission } from './../../../interface/mission';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -14,11 +15,12 @@ export class StoryShareComponent implements OnInit {
   imageArray: any = [];
   selectedFile!: FileList;
   shareStoryForm!: FormGroup;
-  mission: any[] = [];
+  mission: Mission[] = [];
   storyImgage: any = '';
   isFileUpload = true;
   formData = new FormData();
-  constructor(public formBuilder: FormBuilder, public toast: NgToastService, public router: Router) { }
+  constructor(public formBuilder: FormBuilder, public toast: NgToastService, public router: Router,
+    private service: AdminService) { }
 
   ngOnInit(): void {
     this.shareStoryForm = this.formBuilder.group({
@@ -29,12 +31,14 @@ export class StoryShareComponent implements OnInit {
       url: [''],
       images: [null, Validators.compose([Validators.required])]
     })
+
+    this.onGetMissions();
   }
 
   OnSelectedImage(event: any) {
     const files = event.target.files;
-    if (files.length > 20) {
-      return this.toast.error({ detail: "ERROR", summary: "Maximum 20 images can be added.", duration: 3000 });
+    if (files.length > 10) {
+      return this.toast.error({ detail: "ERROR", summary: "You cannot add more images!", duration: 3000 });
     }
     if (files) {
       this.formData = new FormData();
@@ -71,4 +75,17 @@ export class StoryShareComponent implements OnInit {
     }
   }
 
+  onGetMissions(): void {
+    this.service.getMissions().subscribe(
+      (response: Mission[]) => {
+        if (response.length != null) {
+          this.mission = response;
+        } else {
+          console.log(response);
+        }
+      },
+      (error: any) => console.log(error),
+      () => console.log('Found mission list!')
+    );
+  }
 }

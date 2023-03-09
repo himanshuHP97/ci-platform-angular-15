@@ -74,7 +74,7 @@ export class VolunteeringMissionComponent {
     if (this.commentForm.valid) {
       let value = {
       comment:this.commentForm.value,
-      userId:2,
+      username:"user",
       missionId:this.mission.id,
       commentDate:Date.now()
     }
@@ -89,9 +89,5 @@ export class VolunteeringMissionComponent {
     );
   }
 }
-}
-
-function moment() {
-  throw new Error('Function not implemented.');
 }
 

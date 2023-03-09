@@ -148,7 +148,7 @@ export class AdminService {
     return this.http.get<Comment[]>(`${this.apiurl}/comments/${missionId}`);
   }
 
-  createComment(comment: Comment): Observable<Comment> {
+  createComment(comment: any): Observable<Comment> {
     return this.http.post<Comment>(`${this.apiurl}/comments`, Comment);
   }
 
@@ -169,19 +169,19 @@ export class AdminService {
 
   //#region Story API Endpoints
   getStories(): Observable<Story[]> {
-    return this.http.get<Story[]>(`${this.apiurl}/missions`);
+    return this.http.get<Story[]>(`${this.apiurl}/story`);
   }
 
   getStory(id: number): Observable<Story> {
-    return this.http.get<Story>(`${this.apiurl}/missions/${id}`);
+    return this.http.get<Story>(`${this.apiurl}/story/${id}`);
   }
 
   updateStory(story: Story): Observable<Story> {
-    return this.http.put<Story>(`${this.apiurl}/missions/${story.id}`, story);
+    return this.http.put<Story>(`${this.apiurl}/story/${story.id}`, story);
   }
 
   deleteStory(id: number): Observable<Story> {
-    return this.http.delete<Story>(`${this.apiurl}/missions/${id}`);
+    return this.http.delete<Story>(`${this.apiurl}/story/${id}`);
   }
   //#endregion
 }

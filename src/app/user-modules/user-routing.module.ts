@@ -19,7 +19,7 @@ const routes: Routes = [
       { path: 'volunteering-mission', component: VolunteeringMissionComponent },
       { path: 'volunteering-mission/:id', component: VolunteeringMissionComponent },
       { path: 'story-page', component: StoryPageComponent },
-      { path: 'story-detail', component: StoryDetailsComponent },
+      { path: 'story-detail/:id', component: StoryDetailsComponent },
       { path: 'story-share', component: StoryShareComponent },
       { path: 'volunteer-page', component: VolunteerPageComponent },
       { path: 'user-profile', component: UserProfileComponent },

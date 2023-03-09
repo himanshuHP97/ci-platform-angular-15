@@ -1,3 +1,5 @@
+import { AdminService } from 'src/app/service/adminservices.service';
+import { Story } from './../../interface/story';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +8,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./story-page.component.scss']
 })
 export class StoryPageComponent implements OnInit {
-  stories: [] = [];
+    stories: Story[] = [];
+    page: number = 1;
+    constructor(private service: AdminService) { }
+    count!:number;
 
-  constructor() { }
+    ngOnInit(): void {
+      this.onGetStories();
+    }
 
-  ngOnInit(): void {
+    onGetStories(): void {
+      this.service.getStories().subscribe(
+        (response: Story[]) => {
+          if (response.length != null) {
+            this.stories = response;
+            this.count = response.length;
+          } else {
+            console.log(response);
+          }
+        },
+        (error: any) => console.log(error),
+        () => console.log('Found Stroies!')
+      );
+    }
   }
-}

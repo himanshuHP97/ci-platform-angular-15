@@ -2,14 +2,15 @@
   <div class="grid h-75 md:grid-cols-12 lg:grid-cols-12 mb-2">
     <div class="lg:col-span-6 md:col-span-6 col-span-12 px-0">
       <div class="flex items-center justify-center my-12 mx-6">
-        <img class="flex" src="../../../../assets/images/image2.png">
+        <img class="flex" src="../../../../assets/images/{{story.images[0]}}">
       </div>
       <div class="flex border-2 mx-6">
-        <div><img class="" src="../../../../assets/images/image1.png" alt=""></div>
-        <div><img class="pl-1" src="../../../../assets/images/image1.png" alt=""></div>
-        <div><img class="pl-1" src="../../../../assets/images/image1.png" alt=""></div>
-        <div><img class="pl-1" src="../../../../assets/images/image1.png" alt=""></div>
-        <div><img class="pl-1" src="../../../../assets/images/image1.png" alt=""></div>
+        <carousel [itemsPerSlide]="itemsPerSlide" [singleSlideOffset]="singleSlideOffset" [noWrap]="!noWrap"
+          [interval]="0" [startFromIndex]="1">
+          <slide *ngFor="let item of story.images; let index=index">
+            <img src="../../../../../../assets/images/{{item}}" alt="image slide" class="block w-full">
+          </slide>
+        </carousel>
       </div>
     </div>
     <div class="lg:col-span-6 md:col-span-6 col-span-12 px-0 bg-white">
@@ -39,11 +40,11 @@
 
       <div class="flex w-full items-center text-justify">
         <button
-          class="flex w-50 justify-center my-5 py-3 text-right border-2 text-gray-600 rounded-full border-gray-400">
+          class="flex w-full md:w-50 lg:w-50 justify-center my-5 py-3 text-right border-2 text-gray-600 rounded-full border-gray-400">
           Recommend to a Co-Worker
         </button>
-        <button
-          class="flex w-50 items-center justify-center my-5 py-3 m-2 text-right border-2 text-orange-500 rounded-full border-orange-400">
+        <button routerLink="/user-home/volunteering-mission/{{story.missionId}}" routerLinkActive="active"
+          class="flex w-full md:w-50 lg:w-50 items-center justify-center my-5 py-3 m-2 text-right border-2 text-orange-500 rounded-full border-orange-400">
           Open Mission <img class="ml-4" src="../../../../assets/images/right-arrow.png">
         </button>
       </div>
@@ -53,45 +54,10 @@
     <div class="col-span-12 px-0">
       <div class="flex items-center justify-start bg-white border-b-2 border-gray-300 my-12 mx-6">
         <span class="text-2xl border-b-2 border-gray-800">
-          Grow Tress
-        </span>
-        - On the path to environment sustainbility
-      </div>
-      <div class="flex-row w-full justify-center items-center text-justify mx-6 mb-5">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat.
-        <br><br>
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        <br><br><br>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        <br><br>
-        We use these technologies for a number of purposes, such as:
-        <br><br>
-        <ul class="py-1">
-          <li class="py-1">But I must explain to you how all this mistaken idea of denouncing pleasure andpraising pain.</li>
-          <li class="py-1">
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentiumvoluptatum deleniti
-            atque
-            excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia
-            animi.
-          </li>
-          <li class="py-1">
-            On the other hand, we denounce with righteous
-            indignation and dislike men who are so beguiled and demoralized
-            But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.
-          </li>
-          <li class="py-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
-          </li>
-        </ul>
-        <span class="py-5">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          {{story.title}}
         </span>
       </div>
+      <div class="flex-row w-full justify-center items-center text-justify mx-6 mb-5" [innerHTML]="story.description"></div>
     </div>
   </div>
 </div>

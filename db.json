@@ -664,72 +664,46 @@
   "comments": [
     {
       "comment": "Super mission to contribute to the society",
-      "userId": 1,
       "missionId": "2",
+      "username": "user",
       "commentDate": "2023-02-22T03:52:12.942Z",
       "id": 1
     },
     {
       "comment": "comment 2",
-      "userId": 1,
       "missionId": "2",
+      "username": "user",
       "commentDate": "2023-02-22T03:52:12.942Z",
       "id": 1
     },
     {
       "comment": "comments 1",
       "userId": 1,
+      "username": "user",
       "missionId": "3",
       "commentDate": "2023-02-22T04:14:35.450Z",
       "id": 2
     },
     {
       "comment": "Very good mission",
-      "userId": 2,
       "missionId": "2",
+      "username": "user",
       "commentDate": "2023-02-22T04:20:24.574Z",
       "id": 3
     },
     {
       "comment": "very good",
-      "userId": 3,
       "missionId": "1",
+      "username": "user",
       "commentDate": "2023-02-27T08:52:49.574Z",
       "id": 4
     },
     {
       "comment": "very good mission",
-      "userId": 3,
       "missionId": "3",
+      "username": "user",
       "commentDate": "2023-02-28T07:00:41.984Z",
       "id": 5
-    },
-    {
-      "id": 6
-    },
-    {
-      "id": 7
-    },
-    {
-      "id": 8
-    },
-    {
-      "id": 9
-    },
-    {
-      "id": 10
-    },
-    {
-      "id": 11
-    },
-    {
-      "id": 12
-    },
-    {
-      "id": 13
-    },
-    {
-      "id": 14
     }
   ],
   "story": [
