@@ -50,7 +50,6 @@ export class HeaderComponent implements OnInit {
         }
       },
       (error: any) => console.log(error),
-      () => console.log('Found CMS Page')
     );
   }
   onLogout() {

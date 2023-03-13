@@ -1,7 +1,8 @@
+import { NgToastService } from 'ng-angular-popup';
 import { AdminService } from 'src/app/service/adminservices.service';
 import { Mission, Image } from './../../../interface/mission';
 import { Component, OnInit } from '@angular/core';
-import { Missionskills } from 'src/app/interface/missionskills';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +13,8 @@ export class HomeComponent implements OnInit {
   mission: Mission[] = [];
   page: number = 1;
   displayMode: number = 1;
-  constructor(private service: AdminService) { }
-  count!:number;
+  constructor(private service: AdminService, private toast: NgToastService) { }
+  count!: number;
 
   ngOnInit(): void {
     this.onGetMissions();
@@ -36,5 +37,8 @@ export class HomeComponent implements OnInit {
       (error: any) => console.log(error),
       () => console.log('Found mission!')
     );
+  }
+  ApplyMission() {
+
   }
 }

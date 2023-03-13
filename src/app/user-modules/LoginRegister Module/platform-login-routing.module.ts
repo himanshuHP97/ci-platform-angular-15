@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ResetPasswordComponent } from './forgot-password/reset-password/reset-password.component';
 import { PlatformLoginComponent } from './platform-login.component';
+import { PrivacyPolicyComponent } from '../privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,7 @@ const routes: Routes = [
         ],
       },
       { path: 'registration', component: RegistrationComponent },
+      { path: 'policy-page', component: PrivacyPolicyComponent },
     ],
   },
 ];

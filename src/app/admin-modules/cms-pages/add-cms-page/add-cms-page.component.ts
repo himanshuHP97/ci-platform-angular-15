@@ -56,7 +56,7 @@ export class AddCmsPageComponent implements OnInit, OnDestroy {
           this.router.navigate(['/admin-home/cms-page']);
           this.toastr.success({ detail: 'Success', summary: 'Added CMS Page!', sticky: true, position: 'tr', duration: 1000 })
         },
-        (error: any) => {
+        (error: string) => {
           this.toastr.error({ detail: 'Error', summary: `${error}`, sticky: true, position: 'tr', duration: 1000 })
         }
       );

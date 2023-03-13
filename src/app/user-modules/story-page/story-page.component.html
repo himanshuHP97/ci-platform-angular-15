@@ -19,13 +19,13 @@
 </div>
 
 <section class="my-3">
-  <ng-container *ngIf="(stories | paginate:{itemsPerPage:10,currentPage:page,totalItems:count}) as response">
+  <ng-container *ngIf="(stories | paginate:{itemsPerPage:9,currentPage:page,totalItems:count}) as response">
     <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5">
       <div class="flex flex-col items-center w-full rounded-lg shadow-lg bg-white max-w-md"
         *ngFor="let item of response">
         <div class="w-full h-52">
           <div class="relative h-52">
-            <img class="w-full border-0  object-cover h-52" src="../../../../assets/images/{{item.images[0]}}" />
+            <img class="w-full border-0  object-cover h-52" src="{{item.images[0]}}" />
             <div class="absolute top-0 flex group item-center w-full h-52 hover:bg-black hover:opacity-75">
               <a routerLink="/user-home/story-detail/{{item.id}}" routerLinkActive="active"
                 class="hidden group-hover:flex my-20 items-center justify-center border-2 text-white rounded-full border-white w-36 text-center h-10 mx-auto">
@@ -39,7 +39,7 @@
             {{item.title}}
           </h5>
           <p class="text-gray-700 text-base mb-4">
-            Some quick example text to build on the card title and make up the bulk of the card's content.
+          {{item.description}}
           </p>
           <div class="flex text-center">
             <img class="rounded-full w-8 mb-2" src="../../../assets/images/user-img.png" alt="">

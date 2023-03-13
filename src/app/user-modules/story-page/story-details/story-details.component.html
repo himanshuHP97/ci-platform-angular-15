@@ -2,13 +2,13 @@
   <div class="grid h-75 md:grid-cols-12 lg:grid-cols-12 mb-2">
     <div class="lg:col-span-6 md:col-span-6 col-span-12 px-0">
       <div class="flex items-center justify-center my-12 mx-6">
-        <img class="flex" src="../../../../assets/images/{{story.images[0]}}">
+        <img class="flex" src="{{story.images[0]}}">
       </div>
       <div class="flex border-2 mx-6">
         <carousel [itemsPerSlide]="itemsPerSlide" [singleSlideOffset]="singleSlideOffset" [noWrap]="!noWrap"
           [interval]="0" [startFromIndex]="1">
           <slide *ngFor="let item of story.images; let index=index">
-            <img src="../../../../../../assets/images/{{item}}" alt="image slide" class="block w-full">
+            <img src="{{item}}" alt="image slide" class="block w-full">
           </slide>
         </carousel>
       </div>

@@ -8,9 +8,9 @@ export interface Story {
   description: string;
   images: string[];
   videoUrl:string;
-  status: StoryStatus;
-  isActive:boolean;
   date: string;
+  isActive:boolean;
+  status: StoryStatus;
 }
 
 

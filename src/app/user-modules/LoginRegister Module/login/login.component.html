@@ -39,11 +39,8 @@
                     </span>
                 </div>
                 <div class="mt-4">
-                  <label for="password" class="not-sr-only">Password</label>
-                  <input id="password" name="password" type="password" autocomplete="current-password"
-                    formControlName="password"
-                    class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                    placeholder="Password" />
+                  <label for="password" class="not-sr-only">Password <span  (click)="hideShowPassword()" class="fa {{eyeIcon}}"></span></label>
+                  <input id="password" name="password" [type]="type" formControlName="password" class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Password"/>
                     <span class="text-danger" *ngIf="password.invalid && (password.touched || submitted)">
                       Enter your password please!
                     </span>

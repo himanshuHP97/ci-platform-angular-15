@@ -144,12 +144,12 @@ export class AdminService {
   //#endregion
 
   //#region Comment API Endpoints
-  getComments(missionId: number): Observable<Comment[]> {
-    return this.http.get<Comment[]>(`${this.apiurl}/comments/${missionId}`);
+  getComments(): Observable<Comment[]> {
+    return this.http.get<Comment[]>(`${this.apiurl}/comments`);
   }
 
-  createComment(comment: any): Observable<Comment> {
-    return this.http.post<Comment>(`${this.apiurl}/comments`, Comment);
+  createComment(comment: Comment): Observable<Comment> {
+    return this.http.post<Comment>(`${this.apiurl}/comments`, comment);
   }
 
   deleteComment(id: number): Observable<Mission> {
@@ -175,6 +175,9 @@ export class AdminService {
   getStory(id: number): Observable<Story> {
     return this.http.get<Story>(`${this.apiurl}/story/${id}`);
   }
+  createStory(story: Story): Observable<Story> {
+    return this.http.post<Story>(`${this.apiurl}/story`, story);
+  }
 
   updateStory(story: Story): Observable<Story> {
     return this.http.put<Story>(`${this.apiurl}/story/${story.id}`, story);
@@ -182,6 +185,27 @@ export class AdminService {
 
   deleteStory(id: number): Observable<Story> {
     return this.http.delete<Story>(`${this.apiurl}/story/${id}`);
+  }
+  //#endregion
+
+  //#region VolunteerGoal API Endpoints
+  getVolunteerGoal(): Observable<Story[]> {
+    return this.http.get<Story[]>(`${this.apiurl}/volunteergoal`);
+  }
+
+  geVolunteerGoal(id: number): Observable<Story> {
+    return this.http.get<Story>(`${this.apiurl}/volunteergoal/${id}`);
+  }
+  createVolunteerGoal(story: Story): Observable<Story> {
+    return this.http.post<Story>(`${this.apiurl}/volunteergoal`, story);
+  }
+
+  updateVolunteerGoal(story: Story): Observable<Story> {
+    return this.http.put<Story>(`${this.apiurl}/volunteergoal/${story.id}`, story);
+  }
+
+  deleteVolunteerGoal(id: number): Observable<Story> {
+    return this.http.delete<Story>(`${this.apiurl}/volunteergoal/${id}`);
   }
   //#endregion
 }

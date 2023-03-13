@@ -8,7 +8,7 @@
         <carousel [itemsPerSlide]="itemsPerSlide" [singleSlideOffset]="singleSlideOffset" [noWrap]="!noWrap"
           [interval]="0" [startFromIndex]="1">
           <slide *ngFor="let item of mission.images; let index=index">
-            <img src="../../../../../../assets/images/{{item.image}}" alt="image slide" class="block w-full">
+            <img src="assets/images/{{item.image}}" alt="image slide" class="block w-full">
           </slide>
         </carousel>
       </div>
@@ -143,7 +143,7 @@
       <mat-tab-group dynamicHeight class="nav nav-tabs flex flex-col md:flex-row flex-wrap list-none border-b pl-0 mb-4">
         <mat-tab label="Mission" class="">
           <div class="p-2" [innerHTML]="mission.description"></div>
-          <span class="my-2 border rounded-full" *ngFor="let item of mission.documents">
+          <span class="inline-flex mx-2 my-2 border rounded-full" *ngFor="let item of mission.documents">
            <span class="px-2 mx-2 cursor-pointer">{{item.name}}</span>
           </span>
         </mat-tab>
@@ -152,27 +152,23 @@
         </mat-tab>
         <mat-tab label="Comments">
           <div class="flex-row items-center my-4">
-            <form class="w-full max-w-full" [formGroup]="commentForm" (submit)="onSubmitComment()">
+            <form class="w-full max-w-full" [formGroup]="commentForm" (ngSubmit)="PostComment()">
               <div class="flex flex-wrap -mx-3 my-5">
                 <div class="w-full px-3">
-                  <textarea
-                    class="appearance-none block w-full border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="grid-skill" placeholder="Enter your comment"  formControlName="comment"></textarea>
-                    <span class="text-danger" *ngIf="comment?.invalid && (comment.touched || submitted)">
-                      comment cannot be blank!
-                    </span>
+                  <textarea  class="appearance-none block w-full border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    id="grid-skill" placeholder="Enter your comment" formControlName="comment"></textarea>
+                </div>
+                <div class="flex items-center px-3">
+                  <button type="submit" class="border-2 border-orange-400 rounded-full py-1 px-4 text-sm font-medium text-orange-600 ">Post Comment</button>
                 </div>
               </div>
-              <div class="flex items-center justify-start">
-                <button type="submit" class=" border-2 border-orange-400 rounded-full py-1 px-4 text-sm font-medium text-orange-600 ">Add Comment</button>
-              </div>
             </form>
-            <div class="flex my-4 bg-gray-300">
-              <div class="flex flex-row shadow-md w-full bg-white mx-2 my-2"  *ngFor="let item of comments">
+            <div class="flex my-4 bg-gray-300" *ngFor="let item of comments">
+              <div class="flex flex-row shadow-md w-full bg-white mx-2 my-2">
                 <img class="flex mx-2 my-2 h-12 w-12 rounded-full ring-2 ring-white" src="../../../../../assets/images/volunteer1.png" alt="" />
                 <div class="flex-row mx-2 my-2">
                   <div class="flex-row">
-                    <div class="font-normal">{{item.username}}</div>
+                    <div class="font-normal">Andrews</div>
                     <div class="my-1">{{item.commentDate | date}}</div>
                   </div>
                   <div class="my-2">{{item.comment}}</div>
@@ -232,103 +228,34 @@
     Related Mission
   </div>
   <!-- grid -->
-  <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
-    <div class="flex-row items-center w-full border-2 bg-white">
-      <div class="relative">
-        <div class="absolute  inline-flex justify-end w-full my-3 px-3">
-          <i class="fa fa-location-arrow text-white bg-black opacity-60 px-3 py-2 rounded-full"><span
-              class="px-2">Toronto</span></i>
-        </div>
-        <div class="absolute inline-flex justify-end w-full my-24 px-3">
-          <i class="fa fa-heart-o text-white bg-black opacity-80 px-3 py-2 rounded-full font-semibold"></i>
-        </div>
-        <div class="absolute inline-flex justify-end w-full my-36 px-3">
-          <i class="fa fa-user-plus text-white bg-black opacity-60 px-3 py-2 rounded-full"></i>
-        </div>
-        <img class="w-full border-0"
-          src="../../../assets/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="..." />
-        <div class="relative -top-4 bg-white rounded-full w-50 mx-auto text-center">Environment</div>
+  <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5"
+  *ngIf="displayMode === 1">
+  <div class="flex flex-col items-center w-full border-2 bg-white cursor-pointer" >
+    <div class="relative h-64">
+      <div class="absolute  inline-flex right-0 rounded-full my-3 text-white bg-black opacity-60 p-2">
+        <i class="fa fa-map-marker">&nbsp;Uk</i>
       </div>
-      <div class="px-6 py-3">
-        <div class="font-bold text-xl mb-2 text-justify">Grow Trees – On the path to environment sustainability</div>
-        <p class="text-gray-700 text-sm text-justify">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis
-          eaque, exercitationem praesentium nihil.
-        </p>
+      <div class="absolute inline-flex right-0 rounded-full text-white bg-black opacity-60 my-20 p-2">
+        <i class="fa fa-heart-o"></i>
       </div>
-      <div class="cardbody">
-        <div class="flex justify-between items-center px-6 py-3">
-          <span>Tree Canada</span>
-          <span class="star-rating text-lg text-yellow-300">
-            <i class="fa fa-star" id="star1"></i>
-            <i class="fa fa-star" id="star2"></i>
-            <i class="fa fa-star" id="star3"></i>
-            <i class="fa fa-star" id="star4"></i>
-            <i class="fa fa-star" id="star5"></i>
-          </span>
-        </div>
-        <div class="border-t border-b">
-          <div class="flex items-center justify-center w-full -mt-3">
-            <div class="border rounded-full px-2 bg-white">
-              From 10/01/2019 until 25/02/2019
-            </div>
-          </div>
-          <div class="flex items-center justify-between text-gray-400 my-2">
-            <div class="inline-flex">
-              <span>
-                <img src="../../../assets/images/Seats-left.png" class="w-7 h-7">
-              </span>
-              <div class="text-gray-600">
-                10
-                <div class="text-style-1">
-                  Seats left
-                </div>
-              </div>
-            </div>
-            <div class="inline-flex">
-              <span>
-                <img src="../../../assets/images/deadline.png" class="w-8 h-8">
-              </span>
-              <div class="text-gray-600">
-                09/01/2019
-                <div class="text-style-1">
-                  Deadline
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="flex justify-center mx-auto my-3 items-center w-52 border-2 rounded-full border-orange-500">
-          <button class="text-base py-2 text-orange-500 font-normal">Apply <i class="fa fa-arrow-right"></i></button>
-        </div>
+      <div class="absolute inline-flex my-36 right-0 rounded-full text-white bg-black opacity-60 p-2">
+        <i class="fa fa-user-plus"></i>
       </div>
+      <img class="w-full border-0 object-cover h-64" src="../../../../assets/images/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="..." />
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 bg-white rounded-full w-50 mx-auto text-center">Environment</div>
     </div>
-    <div class="flex-row items-center w-full border-2 bg-white">
-      <div class="relative">
-        <div class="absolute  inline-flex justify-end w-full my-3 px-3">
-          <i class="fa fa-location-arrow text-white bg-black opacity-60 px-3 py-2 rounded-full"><span
-              class="px-2">Toronto</span></i>
+    <div class="grid grid-rows-[12] flex-1 border-4">
+      <div class="px-6 py-3 row-span-6">
+        <div class="font-bold text-xl mb-2 text-justify">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
         </div>
-        <div class="absolute inline-flex justify-end w-full my-24 px-3">
-          <i class="fa fa-heart-o text-white bg-black opacity-80 px-3 py-2 rounded-full font-semibold"></i>
-        </div>
-        <div class="absolute inline-flex justify-end w-full my-36 px-3">
-          <i class="fa fa-user-plus text-white bg-black opacity-60 px-3 py-2 rounded-full"></i>
-        </div>
-        <img class="w-full border-0"
-          src="../../../assets/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="..." />
-        <div class="relative -top-4 bg-white rounded-full w-50 mx-auto text-center">Environment</div>
-      </div>
-      <div class="px-6 py-3">
-        <div class="font-bold text-xl mb-2 text-justify">Grow Trees – On the path to environment sustainability</div>
         <p class="text-gray-700 text-sm text-justify">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis
-          eaque, exercitationem praesentium nihil.
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, quia totam ipsa voluptatum deserunt inventore veniam maxime voluptates, unde ducimus atque modi doloribus incidunt doloremque eaque libero, excepturi aliquid facere!
         </p>
       </div>
-      <div class="cardbody">
+      <div class="row-span-3">
         <div class="flex justify-between items-center px-6 py-3">
-          <span>Tree Canada</span>
+          <span>UK</span>
           <span class="star-rating text-lg text-yellow-300">
             <i class="fa fa-star" id="star1"></i>
             <i class="fa fa-star" id="star2"></i>
@@ -340,7 +267,7 @@
         <div class="border-t border-b">
           <div class="flex items-center justify-center w-full -mt-3">
             <div class="border rounded-full px-2 bg-white">
-              From 10/01/2019 until 25/02/2019
+              From 12/01/2023 until 12/02/2023
             </div>
           </div>
           <div class="flex items-center justify-between text-gray-400 my-2">
@@ -349,10 +276,7 @@
                 <img src="../../../assets/images/Seats-left.png" class="w-7 h-7">
               </span>
               <div class="text-gray-600">
-                10
-                <div class="text-style-1">
-                  Seats left
-                </div>
+                10<div class="text-style-1">Seats left </div>
               </div>
             </div>
             <div class="inline-flex">
@@ -360,91 +284,30 @@
                 <img src="../../../assets/images/deadline.png" class="w-8 h-8">
               </span>
               <div class="text-gray-600">
-                09/01/2019
-                <div class="text-style-1">
-                  Deadline
-                </div>
+                12/02/2023<div class="text-style-1"> Deadline </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="flex justify-center mx-auto my-3 items-center w-52 border-2 rounded-full border-orange-500">
-          <button class="text-base py-2 text-orange-500 font-normal" routerLink="/user-home/volunteering-mission"
-            routerLinkActive="active">View Details <i class="fa fa-arrow-right"></i></button>
-        </div>
+
       </div>
-    </div>
-    <div class="flex-row items-center w-full border-2 bg-white">
-      <div class="relative">
-        <div class="absolute  inline-flex justify-end w-full my-3 px-3">
-          <i class="fa fa-location-arrow text-white bg-black opacity-60 px-3 py-2 rounded-full"><span
-              class="px-2">Toronto</span></i>
+      <div class="row-span-3">
+        <div class="flex justify-center mx-auto my-3 items-center w-52 border-2 rounded-full border-orange-500"
+          *ngIf="mission.isApplied == false;">
+          <button class="text-base py-2 text-orange-500 font-normal" type="submit"> Apply<i
+              class="fa fa-arrow-right"></i></button>
         </div>
-        <div class="absolute inline-flex justify-end w-full my-24 px-3">
-          <i class="fa fa-heart-o text-white bg-black opacity-80 px-3 py-2 rounded-full font-semibold"></i>
-        </div>
-        <div class="absolute inline-flex justify-end w-full my-36 px-3">
-          <i class="fa fa-user-plus text-white bg-black opacity-60 px-3 py-2 rounded-full"></i>
-        </div>
-        <img class="w-full border-0"
-          src="../../../assets/images/Grow-Trees-On-the-path-to-environment-sustainability-1.png" alt="..." />
-        <div class="relative -top-4 bg-white rounded-full w-50 mx-auto text-center">Environment</div>
-      </div>
-      <div class="px-6 py-3">
-        <div class="font-bold text-xl mb-2 text-justify">Grow Trees – On the path to environment sustainability</div>
-        <p class="text-gray-700 text-sm text-justify">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis
-          eaque, exercitationem praesentium nihil.
-        </p>
-      </div>
-      <div class="cardbody">
-        <div class="flex justify-between items-center px-6 py-3">
-          <span>Tree Canada</span>
-          <span class="star-rating text-lg text-yellow-300">
-            <i class="fa fa-star" id="star1"></i>
-            <i class="fa fa-star" id="star2"></i>
-            <i class="fa fa-star" id="star3"></i>
-            <i class="fa fa-star" id="star4"></i>
-            <i class="fa fa-star" id="star5"></i>
-          </span>
-        </div>
-        <div class="border-t border-b">
-          <div class="flex items-center justify-center w-full -mt-3">
-            <div class="border rounded-full px-2 bg-white">
-              From 10/01/2019 until 25/02/2019
-            </div>
-          </div>
-          <div class="flex items-center justify-between text-gray-400 my-2">
-            <div class="inline-flex">
-              <span>
-                <img src="../../../assets/images/Seats-left.png" class="w-7 h-7">
-              </span>
-              <div class="text-gray-600">
-                10
-                <div class="text-style-1">
-                  Seats left
-                </div>
-              </div>
-            </div>
-            <div class="inline-flex">
-              <span>
-                <img src="../../../assets/images/deadline.png" class="w-8 h-8">
-              </span>
-              <div class="text-gray-600">
-                09/01/2019
-                <div class="text-style-1">
-                  Deadline
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="flex justify-center mx-auto my-3 items-center w-52 border-2 rounded-full border-orange-500">
-          <button class="text-base py-2 text-orange-500 font-normal">Apply <i class="fa fa-arrow-right"></i></button>
+        <div class="flex justify-center mx-auto my-3 items-center w-52 border-2 rounded-full border-orange-500"
+          *ngIf="mission.isApplied == true">
+          <a routerLink="/user-home/volunteering-mission/{{mission.id}}" routerLinkActive="active"
+            class="cursor-pointer block">
+            <button class="text-base py-2 text-orange-500 font-normal" type="submit"> View Details<i
+                class="fa fa-arrow-right"></i></button></a>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 <footer class="flex w-full items-center justify-start position-sticky border-top">

@@ -15,6 +15,10 @@ export class LoginComponent implements OnInit {
   isLoading = false;
   submitted = false;
 
+  type: string = "password";
+  isText: boolean = false;
+  eyeIcon:string = "fa-eye-slash";
+
   constructor(
     private formbuilder: FormBuilder,
     private router: Router,
@@ -35,6 +39,12 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get('password') as FormControl;
   }
 
+  hideShowPassword() {
+    this.isText = !this.isText;
+    this.isText ? this.eyeIcon = "fa-eye" : this.eyeIcon = "fa-eye-slash";
+    this.isText ? this.type = "text" : this.type = "password";
+  }
+
   onSubmit() {
     this.submitted = true;
     if (this.loginForm.valid) {
@@ -51,7 +61,7 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/admin-home']);
             this.toastr.success({ detail: 'Success', summary: 'Login successful!', sticky: true, position: 'tr', duration: 1000 })
           }
-          else{
+          else {
             this.isLoading = false;
             this.router.navigate(['/user-home']);
             this.toastr.success({ detail: 'Success', summary: 'Login successful!', sticky: true, position: 'tr', duration: 1000 })
